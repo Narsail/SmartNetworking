@@ -12,7 +12,7 @@ enum StringConstants {
     
     enum Appointment {
         
-        static let appointment = NSLocalizedString("appointment", value:"Appointment", comment: "An Appointment.")
+        static let appointment = NSLocalizedString("appointment", value:"Appointments", comment: "An Appointment.")
         
     }
     
