@@ -1,0 +1,509 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2ACC4CF11FB9D97C00401B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4CF01FB9D97C00401B75 /* AppDelegate.swift */; };
+		2ACC4CF61FB9D97C00401B75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4CF41FB9D97C00401B75 /* Main.storyboard */; };
+		2ACC4CF81FB9D97C00401B75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4CF71FB9D97C00401B75 /* Assets.xcassets */; };
+		2ACC4CFB1FB9D97C00401B75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4CF91FB9D97C00401B75 /* LaunchScreen.storyboard */; };
+		2ACC4D091FB9DBDC00401B75 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D081FB9DBDC00401B75 /* Strings.swift */; };
+		2ACC4D0B1FB9DC7B00401B75 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D0A1FB9DC7B00401B75 /* AppCoordinator.swift */; };
+		2ACC4D0E1FB9DCB900401B75 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D0D1FB9DCB900401B75 /* BaseCoordinator.swift */; };
+		2ACC4D121FB9DDF600401B75 /* AppointmentListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D111FB9DDF600401B75 /* AppointmentListCoordinator.swift */; };
+		2ACC4D141FB9DE1E00401B75 /* AppointmentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D131FB9DE1E00401B75 /* AppointmentListViewModel.swift */; };
+		2ACC4D161FB9DE5000401B75 /* AppointmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D151FB9DE5000401B75 /* AppointmentListViewController.swift */; };
+		2ACC4D181FB9DF2D00401B75 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4D171FB9DF2D00401B75 /* .swiftlint.yml */; };
+		59DD1DB008508DBEE583156D /* Pods_SmartNetworkung.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BADE03F99E03E67B2C3813 /* Pods_SmartNetworkung.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		00BADE03F99E03E67B2C3813 /* Pods_SmartNetworkung.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartNetworkung.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ACC4CED1FB9D97C00401B75 /* SmartNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ACC4CF01FB9D97C00401B75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2ACC4CF51FB9D97C00401B75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2ACC4CF71FB9D97C00401B75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2ACC4CFA1FB9D97C00401B75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2ACC4CFC1FB9D97C00401B75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ACC4D081FB9DBDC00401B75 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		2ACC4D0A1FB9DC7B00401B75 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		2ACC4D0D1FB9DCB900401B75 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		2ACC4D111FB9DDF600401B75 /* AppointmentListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListCoordinator.swift; sourceTree = "<group>"; };
+		2ACC4D131FB9DE1E00401B75 /* AppointmentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewModel.swift; sourceTree = "<group>"; };
+		2ACC4D151FB9DE5000401B75 /* AppointmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewController.swift; sourceTree = "<group>"; };
+		2ACC4D171FB9DF2D00401B75 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		9DE1AABC93EE7CE312F52863 /* Pods-SmartNetworkung.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartNetworkung.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartNetworkung/Pods-SmartNetworkung.release.xcconfig"; sourceTree = "<group>"; };
+		F23D361C116A39C0118690F8 /* Pods-SmartNetworkung.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartNetworkung.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartNetworkung/Pods-SmartNetworkung.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2ACC4CEA1FB9D97C00401B75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59DD1DB008508DBEE583156D /* Pods_SmartNetworkung.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2ACC4CE41FB9D97C00401B75 = {
+			isa = PBXGroup;
+			children = (
+				2ACC4D171FB9DF2D00401B75 /* .swiftlint.yml */,
+				2ACC4D021FB9DABB00401B75 /* iOS */,
+				2ACC4CEE1FB9D97C00401B75 /* Products */,
+				39670396D9A76D05FA5228FA /* Pods */,
+				4501C2A9CC7FD1BA774B3E7B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2ACC4CEE1FB9D97C00401B75 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2ACC4CED1FB9D97C00401B75 /* SmartNetworking.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2ACC4D021FB9DABB00401B75 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2ACC4D041FB9DAC400401B75 /* Application */,
+				2ACC4D031FB9DABF00401B75 /* Tests */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		2ACC4D031FB9DABF00401B75 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		2ACC4D041FB9DAC400401B75 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				2ACC4D061FB9DAD200401B75 /* Assets */,
+				2ACC4D051FB9DACD00401B75 /* Source */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		2ACC4D051FB9DACD00401B75 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2ACC4D101FB9DD7900401B75 /* Scenes */,
+				2ACC4D0C1FB9DCA800401B75 /* Foundation */,
+				2ACC4D071FB9DBD400401B75 /* Constants */,
+				2ACC4CF01FB9D97C00401B75 /* AppDelegate.swift */,
+				2ACC4D0A1FB9DC7B00401B75 /* AppCoordinator.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		2ACC4D061FB9DAD200401B75 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2ACC4CF41FB9D97C00401B75 /* Main.storyboard */,
+				2ACC4CF71FB9D97C00401B75 /* Assets.xcassets */,
+				2ACC4CF91FB9D97C00401B75 /* LaunchScreen.storyboard */,
+				2ACC4CFC1FB9D97C00401B75 /* Info.plist */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2ACC4D071FB9DBD400401B75 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				2ACC4D081FB9DBDC00401B75 /* Strings.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		2ACC4D0C1FB9DCA800401B75 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				2ACC4D0D1FB9DCB900401B75 /* BaseCoordinator.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		2ACC4D101FB9DD7900401B75 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2ACC4D111FB9DDF600401B75 /* AppointmentListCoordinator.swift */,
+				2ACC4D131FB9DE1E00401B75 /* AppointmentListViewModel.swift */,
+				2ACC4D151FB9DE5000401B75 /* AppointmentListViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		39670396D9A76D05FA5228FA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F23D361C116A39C0118690F8 /* Pods-SmartNetworkung.debug.xcconfig */,
+				9DE1AABC93EE7CE312F52863 /* Pods-SmartNetworkung.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4501C2A9CC7FD1BA774B3E7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00BADE03F99E03E67B2C3813 /* Pods_SmartNetworkung.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2ACC4CEC1FB9D97C00401B75 /* SmartNetworking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2ACC4CFF1FB9D97C00401B75 /* Build configuration list for PBXNativeTarget "SmartNetworking" */;
+			buildPhases = (
+				31E7E0B35707BE6607FE1CF1 /* [CP] Check Pods Manifest.lock */,
+				2ACC4CE91FB9D97C00401B75 /* Sources */,
+				2ACC4CEA1FB9D97C00401B75 /* Frameworks */,
+				2ACC4CEB1FB9D97C00401B75 /* Resources */,
+				F916E4FC46883F9FFFBE0BB7 /* [CP] Embed Pods Frameworks */,
+				6D81A27CD562DDE23F9CEDFE /* [CP] Copy Pods Resources */,
+				2ACC4D0F1FB9DCE500401B75 /* SwiftLint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartNetworking;
+			productName = SmartNetworkung;
+			productReference = 2ACC4CED1FB9D97C00401B75 /* SmartNetworking.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2ACC4CE51FB9D97C00401B75 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "David Moeller";
+				TargetAttributes = {
+					2ACC4CEC1FB9D97C00401B75 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2ACC4CE81FB9D97C00401B75 /* Build configuration list for PBXProject "SmartNetworking" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2ACC4CE41FB9D97C00401B75;
+			productRefGroup = 2ACC4CEE1FB9D97C00401B75 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2ACC4CEC1FB9D97C00401B75 /* SmartNetworking */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2ACC4CEB1FB9D97C00401B75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ACC4D181FB9DF2D00401B75 /* .swiftlint.yml in Resources */,
+				2ACC4CFB1FB9D97C00401B75 /* LaunchScreen.storyboard in Resources */,
+				2ACC4CF81FB9D97C00401B75 /* Assets.xcassets in Resources */,
+				2ACC4CF61FB9D97C00401B75 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2ACC4D0F1FB9DCE500401B75 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		31E7E0B35707BE6607FE1CF1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmartNetworkung-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D81A27CD562DDE23F9CEDFE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartNetworkung/Pods-SmartNetworkung-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F916E4FC46883F9FFFBE0BB7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SmartNetworkung/Pods-SmartNetworkung-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stevia.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartNetworkung/Pods-SmartNetworkung-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2ACC4CE91FB9D97C00401B75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ACC4D0B1FB9DC7B00401B75 /* AppCoordinator.swift in Sources */,
+				2ACC4D091FB9DBDC00401B75 /* Strings.swift in Sources */,
+				2ACC4D141FB9DE1E00401B75 /* AppointmentListViewModel.swift in Sources */,
+				2ACC4D161FB9DE5000401B75 /* AppointmentListViewController.swift in Sources */,
+				2ACC4CF11FB9D97C00401B75 /* AppDelegate.swift in Sources */,
+				2ACC4D121FB9DDF600401B75 /* AppointmentListCoordinator.swift in Sources */,
+				2ACC4D0E1FB9DCB900401B75 /* BaseCoordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2ACC4CF41FB9D97C00401B75 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2ACC4CF51FB9D97C00401B75 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2ACC4CF91FB9D97C00401B75 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2ACC4CFA1FB9D97C00401B75 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2ACC4CFD1FB9D97C00401B75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2ACC4CFE1FB9D97C00401B75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2ACC4D001FB9D97C00401B75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F23D361C116A39C0118690F8 /* Pods-SmartNetworkung.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2T87V487YG;
+				INFOPLIST_FILE = "$(SRCROOT)/iOS/Application/Assets/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = david.SmartNetworkung;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2ACC4D011FB9D97C00401B75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DE1AABC93EE7CE312F52863 /* Pods-SmartNetworkung.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2T87V487YG;
+				INFOPLIST_FILE = "$(SRCROOT)/iOS/Application/Assets/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = david.SmartNetworkung;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2ACC4CE81FB9D97C00401B75 /* Build configuration list for PBXProject "SmartNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ACC4CFD1FB9D97C00401B75 /* Debug */,
+				2ACC4CFE1FB9D97C00401B75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2ACC4CFF1FB9D97C00401B75 /* Build configuration list for PBXNativeTarget "SmartNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ACC4D001FB9D97C00401B75 /* Debug */,
+				2ACC4D011FB9D97C00401B75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2ACC4CE51FB9D97C00401B75 /* Project object */;
+}
