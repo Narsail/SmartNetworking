@@ -95,10 +95,9 @@ struct AppointmentHandler {
                 
                 appointments.append(
                     Appointment(
-                        title: event.title,
-                        location: event.location ?? "Unknown",
-                        date: event.occurrenceDate,
-                        calenderLink: "",
+                        city: event.location ?? "Unknown",
+                        from: event.startDate,
+                        to: event.endDate,
                         contacts: locationFilteredContacts
                     )
                 )
@@ -106,10 +105,6 @@ struct AppointmentHandler {
             }
             
         }
-        
-        print()
-        print("All Appointments:")
-        print(appointments)
         
         return appointments
         

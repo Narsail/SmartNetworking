@@ -12,15 +12,26 @@ import IGListKit
 
 class AppointmentCell: WhiteBorderCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var numberOfContactsLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var fromToRange: UILabel!
     
     @IBOutlet weak var topCornerHiddingComponent: UIView!
     @IBOutlet weak var bottomCornerHiddingComponent: UIView!
     
     func setAppointment(appointment: Appointment) {
-        self.titleLabel.text = appointment.title
-        self.locationLabel.text = appointment.location
+        
+        self.cityLabel.text = appointment.city
+        self.numberOfContactsLabel.text = "\(appointment.contacts.count)"
+        
+        let dateFormatter = DateFormatter()
+        let localFormatter = DateFormatter.dateFormat(fromTemplate: "yyyy/MM/dd", options: 0, locale: NSLocale.current)
+        dateFormatter.dateFormat = localFormatter
+        
+        let fromDate = dateFormatter.string(from: appointment.from)
+        let toDate = dateFormatter.string(from: appointment.to)
+        
+        self.fromToRange.text = fromDate + " - " + toDate
     }
     
     enum CellPosition {

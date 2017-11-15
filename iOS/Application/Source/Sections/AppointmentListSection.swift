@@ -22,6 +22,7 @@ class AppointmentSectionController: ListSectionController {
     override init() {
         super.init()
         // inset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
+        minimumLineSpacing = 3
     }
     
     override func numberOfItems() -> Int {

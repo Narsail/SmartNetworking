@@ -11,18 +11,16 @@ import IGListKit
 
 class Appointment {
     
-    let title: String
-    let location: String
-    let date: Date
-    let calenderLink: String
+    let city: String
+    let from: Date
+    let to: Date
     
     let contacts: [Contact]
     
-    init(title: String, location: String, date: Date, calenderLink: String, contacts: [Contact]) {
-        self.title = title
-        self.location = location
-        self.date = date
-        self.calenderLink = calenderLink
+    init(city: String, from: Date, to: Date, contacts: [Contact]) {
+        self.city = city
+        self.from = from
+        self.to = to
         self.contacts = contacts
     }
 }
@@ -30,7 +28,7 @@ class Appointment {
 extension Appointment: ListDiffable {
     
     func diffIdentifier() -> NSObjectProtocol {
-        return date.timeString(in: .full) as NSString
+        return (from.timeString(in: .full) + to.timeString(in: .full)) as NSString
     }
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
