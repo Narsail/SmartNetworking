@@ -11,5 +11,12 @@ target 'SmartNetworking' do
   pod 'SteviaLayout', "~> 4.0.0"
   pod 'IGListKit', '~> 3.0'
   pod "Timepiece"
+  
+  target 'iOS Unit Tests' do
+      inherit! :search_paths
+      # Pods for testing
+      pod 'Quick'
+      pod 'Nimble'
+  end
 
 end
