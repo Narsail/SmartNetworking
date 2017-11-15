@@ -1,6 +1,6 @@
 os: osx
 language: objective-c
-osx_image: xcode9
+osx_image: xcode9.1
 
 before_install:
   - gem install xcpretty -N
@@ -9,7 +9,7 @@ script:
   - set -o pipefail
   - xcodebuild -version
   - xcodebuild -showsdks
-  - xcodebuild test -workspace SmartNetworking.xcworkspace -scheme "SmartNetworking" -sdk iphonesimulator11.0 -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 7" ONLY_ACTIVE_ARCH=NO | xcpretty -c
+  - xcodebuild test -workspace SmartNetworking.xcworkspace -scheme "SmartNetworking" -sdk iphonesimulator11.1 -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 7" ONLY_ACTIVE_ARCH=NO | xcpretty -c
 after_success:
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
       bash <(curl -s https://codecov.io/bash);
