@@ -9,6 +9,8 @@
 import Foundation
 import EventKit
 import Contacts
+import PromiseKit
+import RxSwift
 
 struct AppointmentHandler {
     
@@ -40,73 +42,98 @@ struct AppointmentHandler {
     static func prepareAppointments(with eventStore: EKEventStore,
                                     and contactStore: CNContactStore,
                                     from startDate: Date,
-                                    to endDate: Date) -> [Appointment] {
+                                    to endDate: Date) -> (Observable<Double>, Promise<[Appointment]>) {
         
-        let calendars = eventStore.calendars(for: EKEntityType.event)
+        let progressSubject = PublishSubject<Double>()
         
-        // Use an event store instance to create and properly configure an NSPredicate
-        let eventsPredicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: calendars)
-        
-        // Use the configured NSPredicate to find and return events in the store that match
-        let events = eventStore.events(matching: eventsPredicate).sorted { (ev1: EKEvent, ev2: EKEvent) -> Bool in
-            return ev1.startDate.compare(ev2.startDate) == ComparisonResult.orderedAscending
-        }
-        
-        // Remove all appointments with the geolocation of the user (go through his addresses)
-        
-        // Fetch all Contacts (to only fetch them once
-        let contacts = self.fetchAllContacts(with: contactStore)
-        
-        var appointments = [Appointment]()
-        
-        events.forEach { event in
+        return (progressSubject, Promise<[Appointment]> { success, _ in
             
-            var locationFilteredContacts = [Contact]()
+            // Run in the Background
             
-            contacts.forEach { contact in
+            DispatchQueue.global(qos: .background).async {
                 
-                let adresses = contact.postalAddresses
+                let calendars = eventStore.calendars(for: EKEntityType.event)
                 
-                for address in adresses {
+                // Use an event store instance to create and properly configure an NSPredicate
+                let eventsPredicate = eventStore.predicateForEvents(
+                    withStart: startDate, end: endDate, calendars: calendars)
+                
+                // Use the configured NSPredicate to find and return events in the store that match
+                let events = eventStore.events(
+                        matching: eventsPredicate
+                    ).sorted { (ev1: EKEvent, ev2: EKEvent) -> Bool in
+                        return ev1.startDate.compare(ev2.startDate) == ComparisonResult.orderedAscending
+                    }
+                
+                // Remove all appointments with the geolocation of the user (go through his addresses)
+                
+                // Fetch all Contacts (to only fetch them once
+                let contacts = self.fetchAllContacts(with: contactStore)
+                
+                var appointments = [Appointment]()
+                
+                let amountOfEvents = events.count
+                var eventsProcessed = 0
+                
+                if amountOfEvents > 0 {
+                    progressSubject.onNext(Double(eventsProcessed) / Double(amountOfEvents))
+                }
+                
+                events.forEach { event in
                     
-                    if self.isMatchBetween(event, address.value) {
+                    var locationFilteredContacts = [Contact]()
+                    
+                    contacts.forEach { contact in
                         
-                        let imageData = try? contactStore.unifiedContact(
-                            withIdentifier: contact.identifier,
-                            keysToFetch: [CNContactImageDataKey] as [CNKeyDescriptor]
-                            ).imageData
+                        let adresses = contact.postalAddresses
                         
-                        locationFilteredContacts.append(
-                            Contact(
-                                profilePicture: imageData ?? nil,
-                                name: "\(contact.givenName) \(contact.familyName)",
-                                jobTitle: contact.jobTitle
-                            )
-                        )
-                        break
+                        for address in adresses {
+                            
+                            if self.isMatchBetween(event, address.value) {
+                                
+                                let imageData = try? contactStore.unifiedContact(
+                                    withIdentifier: contact.identifier,
+                                    keysToFetch: [CNContactImageDataKey] as [CNKeyDescriptor]
+                                    ).imageData
+                                
+                                locationFilteredContacts.append(
+                                    Contact(
+                                        profilePicture: imageData ?? nil,
+                                        name: "\(contact.givenName) \(contact.familyName)",
+                                        jobTitle: contact.jobTitle
+                                    )
+                                )
+                                break
+                                
+                            }
+                            
+                        }
                         
                     }
                     
+                    if locationFilteredContacts.count > 0 {
+                        
+                        appointments.append(
+                            Appointment(
+                                city: event.location ?? "Unknown",
+                                from: event.startDate,
+                                to: event.endDate,
+                                contacts: locationFilteredContacts
+                            )
+                        )
+                        
+                    }
+                    
+                    eventsProcessed += 1
+                    progressSubject.onNext(Double(eventsProcessed) / Double(amountOfEvents))
+                    
                 }
                 
-            }
-            
-            if locationFilteredContacts.count > 0 {
-                
-                appointments.append(
-                    Appointment(
-                        city: event.location ?? "Unknown",
-                        from: event.startDate,
-                        to: event.endDate,
-                        contacts: locationFilteredContacts
-                    )
-                )
+                success(appointments)
                 
             }
             
-        }
-        
-        return appointments
+        })
         
     }
     

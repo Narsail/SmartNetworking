@@ -26,10 +26,20 @@ class AppointmentListViewController: UIViewController {
         
         view.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: bottomInset, right: 0)
         view.scrollIndicatorInsets = UIEdgeInsets(top: topInset, left: 0, bottom: bottomInset, right: 0)
+        view.alwaysBounceVertical = true
         
         view.backgroundColor = .white
         
         return view
+    }()
+    
+    let refreshControl: UIRefreshControl = {
+        let control = UIRefreshControl()
+        
+        control.tintColor = .gray
+        control.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
+        
+        return control
     }()
     
     init(viewModel: AppointmentListViewModel) {
@@ -57,6 +67,12 @@ class AppointmentListViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.viewModel.checkStatus()
+    }
+    
     func setupLayout() {
         
         // TODO: Use the Safe Area when available
@@ -69,16 +85,23 @@ class AppointmentListViewController: UIViewController {
         
     }
     
+    @objc func refresh() {
+        self.viewModel.checkStatus()
+    }
+    
     lazy var adapter: ListAdapter = {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     }()
     
     func setupCollectionView() {
         
+        collectionView.refreshControl = self.refreshControl
+        
         adapter.collectionView = collectionView
         adapter.dataSource = viewModel.adapterDataSource
         
         self.viewModel.contentUpdated.observeOn(MainScheduler.instance).subscribe(onNext: { _ in
+            self.refreshControl.endRefreshing()
             self.adapter.reloadData(completion: nil)
         }).disposed(by: self.disposeBag)
         

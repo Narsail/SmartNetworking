@@ -13,8 +13,11 @@ import Timepiece
 import CoreLocation
 import IGListKit
 import RxSwift
+import PromiseKit
 
 class AppointmentListViewModel {
+    
+    let disposeBag = DisposeBag()
     
     let adapterDataSource: AppointmentListAdapterDataSource
     
@@ -27,9 +30,7 @@ class AppointmentListViewModel {
     
     init() {
         
-        self.adapterDataSource = AppointmentListAdapterDataSource(title: StringConstants.Appointment.appointment)
-        
-        checkStatus()
+        self.adapterDataSource = AppointmentListAdapterDataSource(title: StringConstants.Visits.title)
         
     }
     
@@ -43,8 +44,12 @@ class AppointmentListViewModel {
             requestAccessToContacts()
         case (.authorized, .authorized):
             reloadData()
+        case (.restricted, _), (.denied, _):
+            needCalendarPermission()
+        case (_, .restricted), (_, .denied):
+            needContactPermission()
         default:
-            needPermission()
+            return
         }
     }
     
@@ -63,33 +68,68 @@ class AppointmentListViewModel {
     func reloadData() {
         let now = Date()
         guard let until = now + 1.month else { return }
+        
+        // Set View for Empty CollectionView
+        self.adapterDataSource.viewForEmptyCollectionView = ProgressView()
+        self.adapterDataSource.appointments = []
+        self.contentUpdated.onNext(())
+        
         // prepare Data
-        DispatchQueue.global(qos: .background).async {
-            let appointments = AppointmentHandler.prepareAppointments(with: self.eventStore, and: self.contactStore,
-                                                                      from: now, to: until)
+        let (progressObservable, appointmentsPromise) = AppointmentHandler.prepareAppointments(
+            with: self.eventStore, and: self.contactStore, from: now, to: until
+        )
+        
+        // Update the Progress View
+        progressObservable.observeOn(MainScheduler.instance).subscribe(onNext: { progress in
+            guard let progressView = self.adapterDataSource.viewForEmptyCollectionView as? ProgressView else { return }
+            progressView.progressView.setProgress(Float(progress), animated: true)
+        }).disposed(by: disposeBag)
+        
+        // Handle the finished Appointments
+        
+        firstly {
+            appointmentsPromise
+        }
+        
+        .then { appointments -> Void in
             // Put it into the IG List
             self.adapterDataSource.appointments = appointments
+            // Remove View
+            if appointments.count < 1 {
+                self.adapterDataSource.viewForEmptyCollectionView = NoVisitsView()
+            } else {
+                self.adapterDataSource.viewForEmptyCollectionView = nil
+            }
             // Reload IG List
             self.contentUpdated.onNext(())
         }
         
-    }
-    
-    func needPermission() {
+        .catch { error in
+            print("Loading Appointments failed with \(error)")
+        }
         
     }
     
-    func goToSettings() {
-        let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)
-        UIApplication.shared.openURL(openSettingsUrl!)
+    func needCalendarPermission() {
+        
+        self.adapterDataSource.viewForEmptyCollectionView = PermissionView(state: .calendars)
+        self.contentUpdated.onNext(())
+        
     }
     
+    func needContactPermission() {
+        
+        self.adapterDataSource.viewForEmptyCollectionView = PermissionView(state: .contacts)
+        self.contentUpdated.onNext(())
+        
+    }
 }
 
 class AppointmentListAdapterDataSource: NSObject {
     
     var appointments = [Appointment]()
     let title: String
+    var viewForEmptyCollectionView: UIView?
     
     init(title: String) {
         self.title = title
@@ -101,7 +141,11 @@ class AppointmentListAdapterDataSource: NSObject {
 extension AppointmentListAdapterDataSource: ListAdapterDataSource {
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return [self.title as NSString] + appointments
+        
+        if appointments.count > 0 {
+            return [self.title as NSString] + appointments
+        }
+        return []
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
@@ -116,7 +160,7 @@ extension AppointmentListAdapterDataSource: ListAdapterDataSource {
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
-        return nil
+        return self.viewForEmptyCollectionView
     }
     
 }

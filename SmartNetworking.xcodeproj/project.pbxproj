@@ -10,6 +10,9 @@
 		1F3AF6B7559C292EF249D855 /* Pods_iOS_Unit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9195FC81516BC7D6D7FAFA /* Pods_iOS_Unit_Tests.framework */; };
 		2A1388E11FBBB61700B1C616 /* AppointmentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1388E01FBBB61700B1C616 /* AppointmentHandler.swift */; };
 		2A1388E31FBBBA3800B1C616 /* AppointmentHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1388E21FBBBA3800B1C616 /* AppointmentHandlerSpec.swift */; };
+		2A4E95101FBE20D0002DB27D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E950F1FBE20D0002DB27D /* ProgressView.swift */; };
+		2A4E95121FBE394C002DB27D /* NoVisitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E95111FBE394C002DB27D /* NoVisitsView.swift */; };
+		2A4E95141FBE4C85002DB27D /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E95131FBE4C85002DB27D /* PermissionView.swift */; };
 		2ACC4CF11FB9D97C00401B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4CF01FB9D97C00401B75 /* AppDelegate.swift */; };
 		2ACC4CF61FB9D97C00401B75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4CF41FB9D97C00401B75 /* Main.storyboard */; };
 		2ACC4CF81FB9D97C00401B75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4CF71FB9D97C00401B75 /* Assets.xcassets */; };
@@ -52,6 +55,9 @@
 		2A1388E01FBBB61700B1C616 /* AppointmentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHandler.swift; sourceTree = "<group>"; };
 		2A1388E21FBBBA3800B1C616 /* AppointmentHandlerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHandlerSpec.swift; sourceTree = "<group>"; };
 		2A1388E61FBBBE2E00B1C616 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		2A4E950F1FBE20D0002DB27D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		2A4E95111FBE394C002DB27D /* NoVisitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoVisitsView.swift; sourceTree = "<group>"; };
+		2A4E95131FBE4C85002DB27D /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
 		2ACC4CED1FB9D97C00401B75 /* SmartNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACC4CF01FB9D97C00401B75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ACC4CF51FB9D97C00401B75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -251,6 +257,9 @@
 				2ACC4D2F1FBA4FE600401B75 /* ContactCell.xib */,
 				2ACC4D311FBA509100401B75 /* ContactCell.swift */,
 				2ACC4D291FBA174800401B75 /* TitleCell.swift */,
+				2A4E950F1FBE20D0002DB27D /* ProgressView.swift */,
+				2A4E95111FBE394C002DB27D /* NoVisitsView.swift */,
+				2A4E95131FBE4C85002DB27D /* PermissionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -496,6 +505,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SmartNetworking/Pods-SmartNetworking-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework",
 				"${BUILT_PRODUCTS_DIR}/Timepiece/Timepiece.framework",
@@ -503,6 +513,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stevia.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Timepiece.framework",
@@ -539,11 +550,14 @@
 				2A1388E11FBBB61700B1C616 /* AppointmentHandler.swift in Sources */,
 				2ACC4D2A1FBA174800401B75 /* TitleCell.swift in Sources */,
 				2ACC4D0E1FB9DCB900401B75 /* BaseCoordinator.swift in Sources */,
+				2A4E95121FBE394C002DB27D /* NoVisitsView.swift in Sources */,
 				2ACC4D201FB9F39400401B75 /* String+Contains.swift in Sources */,
 				2ACC4D1A1FB9E27300401B75 /* Constants.swift in Sources */,
+				2A4E95141FBE4C85002DB27D /* PermissionView.swift in Sources */,
 				2ACC4D1D1FB9E34700401B75 /* Appointments.swift in Sources */,
 				2ACC4D2C1FBA17B000401B75 /* TitleSectionController.swift in Sources */,
 				2ACC4D261FBA082500401B75 /* WhiteBorderCell.swift in Sources */,
+				2A4E95101FBE20D0002DB27D /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
