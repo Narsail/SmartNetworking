@@ -14,6 +14,7 @@ import CoreLocation
 import IGListKit
 import RxSwift
 import PromiseKit
+import ContactsUI
 
 class AppointmentListViewModel {
     
@@ -26,11 +27,19 @@ class AppointmentListViewModel {
     
     // MARK: - Outputs
     
-    var contentUpdated = PublishSubject<Void>()
+    let contentUpdated = PublishSubject<Void>()
+    var displayContact: Observable<CNContactViewController>? = nil
     
     init() {
         
-        self.adapterDataSource = AppointmentListAdapterDataSource(title: StringConstants.Visits.title)
+        let displayContactID = PublishSubject<String>()
+        
+        self.adapterDataSource = AppointmentListAdapterDataSource(title: StringConstants.Visits.title,
+                                                                  displayContact: displayContactID)
+        
+        displayContact = displayContactID.map { contactID in
+            return try AppointmentHandler.getContactViewController(for: contactID, with: self.contactStore)
+        }
         
     }
     
@@ -131,8 +140,11 @@ class AppointmentListAdapterDataSource: NSObject {
     let title: String
     var viewForEmptyCollectionView: UIView?
     
-    init(title: String) {
+    let displayContact: PublishSubject<String>
+    
+    init(title: String, displayContact: PublishSubject<String>) {
         self.title = title
+        self.displayContact = displayContact
         super.init()
     }
     
@@ -152,7 +164,7 @@ extension AppointmentListAdapterDataSource: ListAdapterDataSource {
         
         switch object {
         case is Appointment:
-            return AppointmentSectionController()
+            return AppointmentSectionController(displayContact: self.displayContact)
         default:
             return TitleSectionController()
         }

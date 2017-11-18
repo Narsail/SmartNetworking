@@ -7,6 +7,7 @@ target 'SmartNetworking' do
 
   # Pods for SmartNetworkung
   pod 'RxSwift', "~> 4.0.0"
+  pod "RxCocoa"
   pod "SwiftLint"
   pod 'SteviaLayout', "~> 4.0.0"
   pod 'IGListKit', '~> 3.0'

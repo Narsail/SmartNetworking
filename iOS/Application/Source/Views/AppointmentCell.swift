@@ -29,7 +29,7 @@ class AppointmentCell: WhiteBorderCell {
         dateFormatter.dateFormat = localFormatter
         
         let fromDate = dateFormatter.string(from: appointment.from)
-        let toDate = dateFormatter.string(from: appointment.to)
+        let toDate = dateFormatter.string(from: appointment.toDate)
         
         self.fromToRange.text = fromDate + " - " + toDate
     }

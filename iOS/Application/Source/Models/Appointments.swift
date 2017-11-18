@@ -13,14 +13,14 @@ class Appointment {
     
     let city: String
     let from: Date
-    let to: Date
+    let toDate: Date
     
     let contacts: [Contact]
     
-    init(city: String, from: Date, to: Date, contacts: [Contact]) {
+    init(city: String, from: Date, toDate: Date, contacts: [Contact]) {
         self.city = city
         self.from = from
-        self.to = to
+        self.toDate = toDate
         self.contacts = contacts
     }
 }
@@ -28,7 +28,7 @@ class Appointment {
 extension Appointment: ListDiffable {
     
     func diffIdentifier() -> NSObjectProtocol {
-        return (from.timeString(in: .full) + to.timeString(in: .full)) as NSString
+        return (from.timeString(in: .full) + toDate.timeString(in: .full)) as NSString
     }
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
@@ -45,5 +45,6 @@ struct Contact {
     let profilePicture: Data?
     let name: String
     let jobTitle: String
+    let contactID: String
     
 }

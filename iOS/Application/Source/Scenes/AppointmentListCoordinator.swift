@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 class AppointmentListCoordinator: BaseCoordinator<Void> {
     
@@ -23,6 +24,22 @@ class AppointmentListCoordinator: BaseCoordinator<Void> {
         let viewController = AppointmentListViewController(viewModel: viewModel)
         
         self.rootViewController.present(viewController, animated: true, completion: nil)
+        
+        viewModel.displayContact?.subscribe(onNext: { contactViewController in
+            
+            let navigationController = UINavigationController(rootViewController: contactViewController)
+            let backButton = UIBarButtonItem(title: StringConstants.Navigation.backButton,
+                                             style: UIBarButtonItemStyle.plain, target: self, action: nil)
+            
+            contactViewController.navigationItem.leftBarButtonItem = backButton
+            
+            viewController.present(navigationController, animated: true, completion: nil)
+            
+            backButton.rx.tap.subscribe(onNext: {
+                viewController.dismiss(animated: true, completion: nil)
+            }).disposed(by: self.disposeBag)
+            
+        }, onError: { error in print(error) }).disposed(by: self.disposeBag)
         
         return Observable.never()
         

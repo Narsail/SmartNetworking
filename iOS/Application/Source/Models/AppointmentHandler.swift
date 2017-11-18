@@ -11,6 +11,7 @@ import EventKit
 import Contacts
 import PromiseKit
 import RxSwift
+import ContactsUI
 
 struct AppointmentHandler {
     
@@ -100,7 +101,8 @@ struct AppointmentHandler {
                                     Contact(
                                         profilePicture: imageData ?? nil,
                                         name: "\(contact.givenName) \(contact.familyName)",
-                                        jobTitle: contact.jobTitle
+                                        jobTitle: contact.jobTitle,
+                                        contactID: contact.identifier
                                     )
                                 )
                                 break
@@ -117,7 +119,7 @@ struct AppointmentHandler {
                             Appointment(
                                 city: event.location ?? "Unknown",
                                 from: event.startDate,
-                                to: event.endDate,
+                                toDate: event.endDate,
                                 contacts: locationFilteredContacts
                             )
                         )
@@ -172,6 +174,18 @@ struct AppointmentHandler {
         }
         
         return results
+    }
+    
+    static func getContactViewController(for contactID: String,
+                                         with contactStore: CNContactStore) throws -> CNContactViewController {
+        
+        let contact = try contactStore.unifiedContact(
+            withIdentifier: contactID,
+            keysToFetch: [CNContactViewController.descriptorForRequiredKeys()]
+        )
+        
+        return CNContactViewController(for: contact)
+        
     }
     
 }

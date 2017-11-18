@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bkL-gE-B1U">
-                    <rect key="frame" x="15" y="0.0" width="619" height="372"/>
+                    <rect key="frame" x="15" y="0.0" width="604" height="372"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contact" translatesAutoresizingMaskIntoConstraints="NO" id="h31-Tb-jjZ">
                             <rect key="frame" x="10" y="10" width="352" height="352"/>
@@ -26,33 +26,33 @@
                                 <constraint firstAttribute="width" secondItem="h31-Tb-jjZ" secondAttribute="height" multiplier="1:1" id="IlS-2d-VIe"/>
                             </constraints>
                         </imageView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VbA-8T-zBA">
-                            <rect key="frame" x="372" y="0.0" width="779" height="372"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htj-CU-zPk">
+                            <rect key="frame" x="372" y="0.0" width="232" height="372"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IR0-Qc-nVB">
-                                    <rect key="frame" x="0.0" y="0.0" width="779" height="186"/>
+                                    <rect key="frame" x="0.0" y="171" width="232" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Yf-4m-IAg">
-                                    <rect key="frame" x="0.0" y="186" width="779" height="186"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
-                        </stackView>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="IR0-Qc-nVB" firstAttribute="leading" secondItem="htj-CU-zPk" secondAttribute="leading" id="Da8-Cy-KE7"/>
+                                <constraint firstItem="IR0-Qc-nVB" firstAttribute="centerY" secondItem="htj-CU-zPk" secondAttribute="centerY" id="IZ6-GO-iWy"/>
+                                <constraint firstAttribute="trailing" secondItem="IR0-Qc-nVB" secondAttribute="trailing" id="n4o-Wf-dJ0"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="htj-CU-zPk" firstAttribute="top" secondItem="bkL-gE-B1U" secondAttribute="top" id="3yV-eV-FtH"/>
+                        <constraint firstAttribute="trailing" secondItem="htj-CU-zPk" secondAttribute="trailing" id="75W-vl-kSm"/>
+                        <constraint firstAttribute="bottom" secondItem="htj-CU-zPk" secondAttribute="bottom" id="Udq-oR-k6h"/>
                         <constraint firstItem="h31-Tb-jjZ" firstAttribute="top" secondItem="bkL-gE-B1U" secondAttribute="top" constant="10" id="ZTW-Gl-uxQ"/>
-                        <constraint firstAttribute="bottom" secondItem="VbA-8T-zBA" secondAttribute="bottom" id="eNR-UW-XAY"/>
-                        <constraint firstItem="VbA-8T-zBA" firstAttribute="top" secondItem="bkL-gE-B1U" secondAttribute="top" id="obI-RV-lX9"/>
-                        <constraint firstItem="VbA-8T-zBA" firstAttribute="leading" secondItem="h31-Tb-jjZ" secondAttribute="trailing" constant="10" id="qQM-b6-muJ"/>
                         <constraint firstAttribute="bottom" secondItem="h31-Tb-jjZ" secondAttribute="bottom" constant="10" id="rcT-SH-X3J"/>
                         <constraint firstItem="h31-Tb-jjZ" firstAttribute="leading" secondItem="bkL-gE-B1U" secondAttribute="leading" constant="10" id="t26-L3-bty"/>
-                        <constraint firstAttribute="trailing" secondItem="VbA-8T-zBA" secondAttribute="trailing" id="tCH-Bv-nxn"/>
+                        <constraint firstItem="htj-CU-zPk" firstAttribute="leading" secondItem="h31-Tb-jjZ" secondAttribute="trailing" constant="10" id="uwB-ui-tWt"/>
                     </constraints>
                 </view>
             </subviews>
@@ -68,10 +68,9 @@
             <connections>
                 <outlet property="borderView" destination="bkL-gE-B1U" id="Xab-dh-vmP"/>
                 <outlet property="contactImageView" destination="h31-Tb-jjZ" id="BgA-Id-8Qv"/>
-                <outlet property="jobTitleLabel" destination="0Yf-4m-IAg" id="pL1-Vy-3qv"/>
                 <outlet property="nameLabel" destination="IR0-Qc-nVB" id="ZDJ-yo-7iy"/>
             </connections>
-            <point key="canvasLocation" x="-583" y="-357"/>
+            <point key="canvasLocation" x="-583.5" y="-357"/>
         </view>
     </objects>
     <resources>

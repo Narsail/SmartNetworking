@@ -8,18 +8,22 @@
 
 import Foundation
 import IGListKit
+import RxSwift
+import ContactsUI
 
 class AppointmentSectionController: ListSectionController {
     
     var appointment: Appointment!
     
     var expanded = false
+    let displayContact: PublishSubject<String>
     
     var cellWidth: CGFloat {
         return collectionContext!.containerSize.width - 20
     }
     
-    override init() {
+    init(displayContact: PublishSubject<String>) {
+        self.displayContact = displayContact
         super.init()
         // inset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
         minimumLineSpacing = 3
@@ -31,7 +35,7 @@ class AppointmentSectionController: ListSectionController {
     
     override func sizeForItem(at index: Int) -> CGSize {
         if index == 0 {
-            return CGSize(width: cellWidth, height: 70)
+            return CGSize(width: cellWidth, height: 80)
         } else {
             return CGSize(width: cellWidth, height: 55)
         }
@@ -76,10 +80,19 @@ class AppointmentSectionController: ListSectionController {
     }
     
     override func didSelectItem(at index: Int) {
-        expanded = !expanded
-        collectionContext?.performBatch(animated: true, updates: { batchContext in
-            batchContext.reload(self)
-        }, completion: nil)
+        
+        if index == 0 {
+            expanded = !expanded
+            collectionContext?.performBatch(animated: true, updates: { batchContext in
+                batchContext.reload(self)
+            }, completion: nil)
+        } else {
+            
+            let contactID = self.appointment.contacts[index - 1].contactID
+            
+            self.displayContact.onNext(contactID)
+        }
+        
     }
     
 }

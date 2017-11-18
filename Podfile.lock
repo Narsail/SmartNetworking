@@ -17,6 +17,8 @@ PODS:
   - PromiseKit/UIKit (4.5.0):
     - PromiseKit/CorePromise
   - Quick (1.2.0)
+  - RxCocoa (4.0.0):
+    - RxSwift (~> 4.0)
   - RxSwift (4.0.0)
   - SteviaLayout (4.0.0)
   - SwiftLint (0.23.1)
@@ -27,6 +29,7 @@ DEPENDENCIES:
   - Nimble
   - PromiseKit
   - Quick
+  - RxCocoa
   - RxSwift (~> 4.0.0)
   - SteviaLayout (~> 4.0.0)
   - SwiftLint
@@ -37,11 +40,12 @@ SPEC CHECKSUMS:
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
   PromiseKit: 9c1d9f6d7b65e3951a90bea7f407c56972be5d8e
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
   SteviaLayout: 2d6b6d7e9554fa7b2c7c2aba12337b23cf897123
   SwiftLint: 1b670ce79284c76520f84060e87d645078fd32fa
   Timepiece: c0760ec0e545697d86b80424dcd2b4d5ef66cf51
 
-PODFILE CHECKSUM: e15e42366abc45b184fa3e314f04bc0929c8f05f
+PODFILE CHECKSUM: 72ca4e81838882e265e9323123f9a6c0e50431de
 
 COCOAPODS: 1.3.1

@@ -31,20 +31,26 @@ enum StringConstants {
     
     enum Permission {
         
-        static let calendarPermission = NSLocalizedString(
-            "permission.calendarPermission",
+        static let calendarPermission = NSLocalizedString("permission.calendarPermission",
             value: "Please go to the Settings and give access to your Calendars.",
             comment: "Give access to the Calendar."
         )
-        static let contactPermission = NSLocalizedString(
-            "permission.contactPermission",
+        static let contactPermission = NSLocalizedString("permission.contactPermission",
             value: "Please go to the Settings and give access to your Contacts.",
             comment: "Give access to your Contacts."
         )
-        static let goToSettingsButton = NSLocalizedString(
-            "permission.goToSettingsButton",
+        static let goToSettingsButton = NSLocalizedString("permission.goToSettingsButton",
             value: "Go to Settings.",
             comment: "A Button to go to the Settings."
+        )
+        
+    }
+    
+    enum Navigation {
+        
+        static let backButton = NSLocalizedString("navigation.backButton",
+            value: "Back",
+            comment: "Back Button"
         )
         
     }
