@@ -13,7 +13,7 @@ import ContactsUI
 
 class AppointmentSectionController: ListSectionController {
     
-    var appointment: Appointment!
+    var appointment: Visit!
     
     var expanded = false
     let displayContact: PublishSubject<String>
@@ -73,7 +73,7 @@ class AppointmentSectionController: ListSectionController {
     
     override func didUpdate(to object: Any) {
         
-        if let appointment = object as? Appointment {
+        if let appointment = object as? Visit {
             self.appointment = appointment
         }
         

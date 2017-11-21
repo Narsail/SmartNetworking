@@ -70,7 +70,10 @@ class AppointmentListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.viewModel.checkStatus()
+        if viewModel.adapterDataSource.appointments.isEmpty {
+            self.viewModel.checkStatus()
+        }
+
     }
     
     func setupLayout() {

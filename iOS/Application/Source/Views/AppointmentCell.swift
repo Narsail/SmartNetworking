@@ -19,9 +19,9 @@ class AppointmentCell: WhiteBorderCell {
     @IBOutlet weak var topCornerHiddingComponent: UIView!
     @IBOutlet weak var bottomCornerHiddingComponent: UIView!
     
-    func setAppointment(appointment: Appointment) {
+    func setAppointment(appointment: Visit) {
         
-        self.cityLabel.text = appointment.city
+        self.cityLabel.text = appointment.location.city + ", " + appointment.location.country
         self.numberOfContactsLabel.text = "\(appointment.contacts.count)"
         
         let dateFormatter = DateFormatter()

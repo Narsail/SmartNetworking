@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F3AF6B7559C292EF249D855 /* Pods_iOS_Unit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9195FC81516BC7D6D7FAFA /* Pods_iOS_Unit_Tests.framework */; };
-		2A1388E11FBBB61700B1C616 /* AppointmentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1388E01FBBB61700B1C616 /* AppointmentHandler.swift */; };
+		2A1388E11FBBB61700B1C616 /* VisitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1388E01FBBB61700B1C616 /* VisitHandler.swift */; };
 		2A1388E31FBBBA3800B1C616 /* AppointmentHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1388E21FBBBA3800B1C616 /* AppointmentHandlerSpec.swift */; };
 		2A4E95101FBE20D0002DB27D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E950F1FBE20D0002DB27D /* ProgressView.swift */; };
 		2A4E95121FBE394C002DB27D /* NoVisitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E95111FBE394C002DB27D /* NoVisitsView.swift */; };
@@ -25,7 +25,7 @@
 		2ACC4D161FB9DE5000401B75 /* AppointmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D151FB9DE5000401B75 /* AppointmentListViewController.swift */; };
 		2ACC4D181FB9DF2D00401B75 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4D171FB9DF2D00401B75 /* .swiftlint.yml */; };
 		2ACC4D1A1FB9E27300401B75 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D191FB9E27300401B75 /* Constants.swift */; };
-		2ACC4D1D1FB9E34700401B75 /* Appointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D1C1FB9E34700401B75 /* Appointments.swift */; };
+		2ACC4D1D1FB9E34700401B75 /* Visit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D1C1FB9E34700401B75 /* Visit.swift */; };
 		2ACC4D201FB9F39400401B75 /* String+Contains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D1F1FB9F39400401B75 /* String+Contains.swift */; };
 		2ACC4D231FBA07D600401B75 /* AppointmentListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D221FBA07D600401B75 /* AppointmentListSection.swift */; };
 		2ACC4D261FBA082500401B75 /* WhiteBorderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D251FBA082500401B75 /* WhiteBorderCell.swift */; };
@@ -52,7 +52,7 @@
 		00BADE03F99E03E67B2C3813 /* Pods_SmartNetworkung.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartNetworkung.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1388D51FBBB54000B1C616 /* iOS Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1388D91FBBB54000B1C616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A1388E01FBBB61700B1C616 /* AppointmentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHandler.swift; sourceTree = "<group>"; };
+		2A1388E01FBBB61700B1C616 /* VisitHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitHandler.swift; sourceTree = "<group>"; };
 		2A1388E21FBBBA3800B1C616 /* AppointmentHandlerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHandlerSpec.swift; sourceTree = "<group>"; };
 		2A1388E61FBBBE2E00B1C616 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		2A4E950F1FBE20D0002DB27D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		2ACC4D151FB9DE5000401B75 /* AppointmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewController.swift; sourceTree = "<group>"; };
 		2ACC4D171FB9DF2D00401B75 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		2ACC4D191FB9E27300401B75 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		2ACC4D1C1FB9E34700401B75 /* Appointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointments.swift; sourceTree = "<group>"; };
+		2ACC4D1C1FB9E34700401B75 /* Visit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visit.swift; sourceTree = "<group>"; };
 		2ACC4D1F1FB9F39400401B75 /* String+Contains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Contains.swift"; sourceTree = "<group>"; };
 		2ACC4D221FBA07D600401B75 /* AppointmentListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListSection.swift; sourceTree = "<group>"; };
 		2ACC4D251FBA082500401B75 /* WhiteBorderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteBorderCell.swift; sourceTree = "<group>"; };
@@ -225,8 +225,8 @@
 		2ACC4D1B1FB9E33800401B75 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2ACC4D1C1FB9E34700401B75 /* Appointments.swift */,
-				2A1388E01FBBB61700B1C616 /* AppointmentHandler.swift */,
+				2ACC4D1C1FB9E34700401B75 /* Visit.swift */,
+				2A1388E01FBBB61700B1C616 /* VisitHandler.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -504,6 +504,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SmartNetworking/Pods-SmartNetworking-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DefaultsKit/DefaultsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -513,6 +514,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DefaultsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -549,14 +551,14 @@
 				2ACC4D231FBA07D600401B75 /* AppointmentListSection.swift in Sources */,
 				2ACC4D121FB9DDF600401B75 /* AppointmentListCoordinator.swift in Sources */,
 				2ACC4D321FBA509100401B75 /* ContactCell.swift in Sources */,
-				2A1388E11FBBB61700B1C616 /* AppointmentHandler.swift in Sources */,
+				2A1388E11FBBB61700B1C616 /* VisitHandler.swift in Sources */,
 				2ACC4D2A1FBA174800401B75 /* TitleCell.swift in Sources */,
 				2ACC4D0E1FB9DCB900401B75 /* BaseCoordinator.swift in Sources */,
 				2A4E95121FBE394C002DB27D /* NoVisitsView.swift in Sources */,
 				2ACC4D201FB9F39400401B75 /* String+Contains.swift in Sources */,
 				2ACC4D1A1FB9E27300401B75 /* Constants.swift in Sources */,
 				2A4E95141FBE4C85002DB27D /* PermissionView.swift in Sources */,
-				2ACC4D1D1FB9E34700401B75 /* Appointments.swift in Sources */,
+				2ACC4D1D1FB9E34700401B75 /* Visit.swift in Sources */,
 				2ACC4D2C1FBA17B000401B75 /* TitleSectionController.swift in Sources */,
 				2ACC4D261FBA082500401B75 /* WhiteBorderCell.swift in Sources */,
 				2A4E95101FBE20D0002DB27D /* ProgressView.swift in Sources */,

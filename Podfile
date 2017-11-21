@@ -12,7 +12,8 @@ target 'SmartNetworking' do
   pod 'SteviaLayout', "~> 4.0.0"
   pod 'IGListKit', '~> 3.0'
   pod "Timepiece"
-  pod "PromiseKit"
+  pod "PromiseKit", "~> 4.4", subspecs: ['CorePromise', 'CoreLocation']
+  pod 'DefaultsKit'
   
   target 'iOS Unit Tests' do
       inherit! :search_paths

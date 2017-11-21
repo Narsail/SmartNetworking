@@ -9,30 +9,34 @@
 import Foundation
 import IGListKit
 
-class Appointment {
+class Visit {
     
-    let city: String
+    let location: Location
     let from: Date
     let toDate: Date
     
     let contacts: [Contact]
     
-    init(city: String, from: Date, toDate: Date, contacts: [Contact]) {
-        self.city = city
+    init(location: Location, from: Date, toDate: Date, contacts: [Contact]) {
+        self.location = location
         self.from = from
         self.toDate = toDate
         self.contacts = contacts
     }
+    
+    func addContacts(_ contacts: [Contact]) -> Visit {
+        return Visit(location: self.location, from: self.from, toDate: self.toDate, contacts: self.contacts + contacts)
+    }
 }
 
-extension Appointment: ListDiffable {
+extension Visit: ListDiffable {
     
     func diffIdentifier() -> NSObjectProtocol {
         return (from.timeString(in: .full) + toDate.timeString(in: .full)) as NSString
     }
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
-        if let object = object as? Appointment {
+        if let object = object as? Visit {
             return self === object
         }
         return false
@@ -46,5 +50,20 @@ struct Contact {
     let name: String
     let jobTitle: String
     let contactID: String
+    
+}
+
+enum LocationError: Error {
+    case locationNotFoundByGeoCoder
+}
+
+func ==(lhs: Location, rhs: Location) -> Bool {
+    return lhs.city.lowercased() == rhs.city.lowercased() && lhs.country.lowercased() == rhs.country.lowercased()
+}
+
+struct Location: Codable {
+    
+    let city: String
+    let country: String
     
 }
