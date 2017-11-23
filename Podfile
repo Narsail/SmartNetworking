@@ -9,7 +9,7 @@ target 'SmartNetworking' do
   pod 'RxSwift', "~> 4.0.0"
   pod "RxCocoa"
   pod "SwiftLint"
-  pod 'SteviaLayout', "~> 4.0.0"
+  pod 'SteviaLayout', "~> 4.0"
   pod 'IGListKit', '~> 3.0'
   pod "Timepiece"
   pod "PromiseKit", "~> 4.4", subspecs: ['CorePromise', 'CoreLocation']

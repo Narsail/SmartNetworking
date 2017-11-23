@@ -14,7 +14,7 @@ PODS:
   - RxCocoa (4.0.0):
     - RxSwift (~> 4.0)
   - RxSwift (4.0.0)
-  - SteviaLayout (4.0.0)
+  - SteviaLayout (4.1.0)
   - SwiftLint (0.23.1)
   - Timepiece (1.3.1)
 
@@ -28,7 +28,7 @@ DEPENDENCIES:
   - Quick
   - RxCocoa
   - RxSwift (~> 4.0.0)
-  - SteviaLayout (~> 4.0.0)
+  - SteviaLayout (~> 4.0)
   - SwiftLint
   - Timepiece
 
@@ -41,10 +41,10 @@ SPEC CHECKSUMS:
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
-  SteviaLayout: 2d6b6d7e9554fa7b2c7c2aba12337b23cf897123
+  SteviaLayout: 8a3524d4280841abf9f215145304a6cb37a54521
   SwiftLint: 1b670ce79284c76520f84060e87d645078fd32fa
   Timepiece: c0760ec0e545697d86b80424dcd2b4d5ef66cf51
 
-PODFILE CHECKSUM: 58043f03ed1da92ae6dee5fb0d3cac2b0d7dcdb9
+PODFILE CHECKSUM: ffbb147f892dbd6df5033242742f9c83d8eca284
 
 COCOAPODS: 1.3.1

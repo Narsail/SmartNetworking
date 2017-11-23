@@ -57,13 +57,16 @@ enum LocationError: Error {
     case locationNotFoundByGeoCoder
 }
 
-func ==(lhs: Location, rhs: Location) -> Bool {
-    return lhs.city.lowercased() == rhs.city.lowercased() && lhs.country.lowercased() == rhs.country.lowercased()
+func == (lhs: Location, rhs: Location) -> Bool {
+    return lhs.city.lowercased() == rhs.city.lowercased() &&
+        (lhs.country.lowercased() == rhs.country.lowercased() || lhs.isoCountryCode.lowercased() ==
+            rhs.isoCountryCode.lowercased() )
 }
 
 struct Location: Codable {
     
     let city: String
     let country: String
+    let isoCountryCode: String
     
 }

@@ -25,7 +25,7 @@ class AppointmentSectionController: ListSectionController {
     init(displayContact: PublishSubject<String>) {
         self.displayContact = displayContact
         super.init()
-        // inset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
+        inset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
         minimumLineSpacing = 3
     }
     

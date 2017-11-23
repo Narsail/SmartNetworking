@@ -21,8 +21,8 @@ class AppointmentListViewController: UIViewController {
         
         let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         
-        let topInset: CGFloat = 20
-        let bottomInset: CGFloat = 80
+        let topInset: CGFloat = 0
+        let bottomInset: CGFloat = 0
         
         view.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: bottomInset, right: 0)
         view.scrollIndicatorInsets = UIEdgeInsets(top: topInset, left: 0, bottom: bottomInset, right: 0)
@@ -78,14 +78,12 @@ class AppointmentListViewController: UIViewController {
     
     func setupLayout() {
         
-        // TODO: Use the Safe Area when available
-        
         self.view.layout(
-            20,
-            |-self.collectionView-|,
-            0
+            |-self.collectionView-|
         )
         
+        self.collectionView.Top == topLayoutGuide.Bottom
+        self.collectionView.Bottom == bottomLayoutGuide.Top
     }
     
     @objc func refresh() {

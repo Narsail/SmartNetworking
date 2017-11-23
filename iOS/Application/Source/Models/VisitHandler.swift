@@ -14,6 +14,7 @@ import RxSwift
 import ContactsUI
 import CoreLocation
 import DefaultsKit
+import Timepiece
 
 struct VisitHandler {
     
@@ -35,6 +36,44 @@ struct VisitHandler {
                             to endDate: Date) -> (Observable<Double>, Promise<[EKEvent]>) {
         
         let progressSubject = PublishSubject<Double>()
+        
+        // If it is a Simulator, create Events (prior delete all)
+        if Environment.isSimulator {
+            
+            // Create two Events
+            
+            let event = EKEvent(eventStore: store)
+            
+            event.title = "Business Meeting in Atlanta"
+            
+            event.startDate = (Date() + 2.days)!
+            event.endDate = (Date() + (2.days + 2.hours))!
+            event.calendar = store.defaultCalendarForNewEvents
+            
+            var structuredLocation = EKStructuredLocation(title: "Atlanta")
+            structuredLocation.geoLocation = CLLocation(latitude: 33.7489954, longitude: -84.3879824)
+            event.structuredLocation = structuredLocation
+            
+            let secondEvent = EKEvent(eventStore: store)
+            
+            secondEvent.title = "Businsess Meeting in Munich"
+            
+            secondEvent.startDate = (Date() + 3.days)!
+            secondEvent.endDate = (Date() + (3.days + 2.hours))!
+            secondEvent.calendar = store.defaultCalendarForNewEvents
+            
+            structuredLocation = EKStructuredLocation(title: "Munich")
+            structuredLocation.geoLocation = CLLocation(latitude: 48.1351253, longitude: 11.5819805)
+            secondEvent.structuredLocation = structuredLocation
+
+            do {
+                try store.save(event, span: .thisEvent)
+                try store.save(secondEvent, span: .thisEvent)
+            } catch {
+                print(error)
+            }
+            
+        }
         
         return (progressSubject, Promise { success, _ in
             
@@ -77,17 +116,19 @@ struct VisitHandler {
                 
                 if let geoLocation = event.structuredLocation?.geoLocation {
                     
-                    promise = promise.then { visits -> Promise<([Visit], Location)> in
+                    promise = promise.then { visits -> Promise<([Visit], Location?)> in
                         let key = Key<Location>(event.eventIdentifier)
                         if let location = Defaults().get(for: key) {
                             return Promise(value: (visits, location))
                         } else {
-                            return geocoder.reverseGeocode(location: geoLocation).then { placemark -> Promise<([Visit], Location)> in
-                                guard let city = placemark.locality, let country = placemark.country else {
-                                    throw LocationError.locationNotFoundByGeoCoder
+                            return geocoder.reverseGeocode(location: geoLocation).then { placemark -> Promise<([Visit], Location?)> in
+                                
+                                guard let city = placemark.locality, let country = placemark.country,
+                                    let countryCode = placemark.isoCountryCode else {
+                                    return Promise(value: (visits, nil))
                                 }
                                 
-                                let location = Location(city: city, country: country)
+                                let location = Location(city: city, country: country, isoCountryCode: countryCode)
                                 
                                 Defaults().set(location, for: key)
                                 
@@ -99,10 +140,15 @@ struct VisitHandler {
                         eventsProcessed += 1
                         progressSubject.onNext(Double(eventsProcessed) / Double(totalAmountOfEvents))
                         // Return
-                        return Promise(value: visits + [Visit(location: location,
-                                                              from: event.startDate,
-                                                              toDate: event.endDate,
-                                                              contacts: [])])
+                        if let location = location {
+                            return Promise(value: visits + [Visit(location: location,
+                                                                  from: event.startDate,
+                                                                  toDate: event.endDate,
+                                                                  contacts: [])])
+                        } else {
+                            return Promise(value: visits)
+                        }
+                        
                     }
                     
                 }
@@ -186,6 +232,57 @@ struct VisitHandler {
         let totalAmountOfVisits = visits.count
         var visitsProcessed = 0
         
+        // If in Simulator, create two extra Contacts
+        
+        if Environment.isSimulator {
+            
+            // Check whether those contacts are already existing
+            let keysToFetch = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactNamePrefixKey, CNContactPhoneNumbersKey] as [CNKeyDescriptor]
+            let predicate = CNContact.predicateForContacts(matchingName: "Joseph")
+            let fetchedContacts = try? contactStore.unifiedContacts(matching: predicate, keysToFetch: keysToFetch)
+            
+            if fetchedContacts?.count == 0 {
+            
+                // Create two Contacts
+                let contact = CNMutableContact()
+                let adress = CNMutablePostalAddress()
+                adress.city = "Munich"
+                adress.country = "Germany"
+                let secondAdress = CNMutablePostalAddress()
+                secondAdress.city = "München"
+                secondAdress.country = "Deutschland"
+                contact.postalAddresses.append(CNLabeledValue(label: "Work", value: adress))
+                contact.postalAddresses.append(CNLabeledValue(label: "Work", value: secondAdress))
+                contact.givenName = "Joseph"
+                contact.familyName = "Strauß"
+                
+                let saveRequest = CNSaveRequest()
+                saveRequest.add(contact, toContainerWithIdentifier: nil)
+                
+                let secondContact = CNMutableContact()
+                let thirdAdress = CNMutablePostalAddress()
+                thirdAdress.city = "Munich"
+                thirdAdress.country = "Germany"
+                let forthAdress = CNMutablePostalAddress()
+                forthAdress.city = "München"
+                forthAdress.country = "Deutschland"
+                secondContact.postalAddresses.append(CNLabeledValue(label: "Work", value: thirdAdress))
+                secondContact.postalAddresses.append(CNLabeledValue(label: "Work", value: forthAdress))
+                secondContact.givenName = "Hans"
+                secondContact.familyName = "Klepper"
+                
+                let secondSaveRequest = CNSaveRequest()
+                secondSaveRequest.add(secondContact, toContainerWithIdentifier: nil)
+                
+                do {
+                    try contactStore.execute(saveRequest)
+                    try contactStore.execute(secondSaveRequest)
+                } catch {
+                    print(error)
+                }
+            }
+        }
+        
         return (progressSubject, Promise { success, _ in
             
             var visitsWithContacts = [Visit]()
@@ -203,7 +300,8 @@ struct VisitHandler {
                     
                     for address in adresses {
                         
-                        let location = Location(city: address.value.city, country: address.value.country)
+                        let location = Location(city: address.value.city, country: address.value.country,
+                                                isoCountryCode: address.value.isoCountryCode)
                         
                         if location == visit.location {
                             
