@@ -79,21 +79,25 @@ class AppointmentListViewModel {
         guard let until = now + 1.month else { return }
         
         // Set View for Empty CollectionView
-        self.adapterDataSource.viewForEmptyCollectionView = ProgressView()
-        self.adapterDataSource.appointments = []
-        self.contentUpdated.onNext(())
+        DispatchQueue.main.async {
+            self.adapterDataSource.viewForEmptyCollectionView = ProgressView()
+            self.adapterDataSource.appointments = []
+            self.contentUpdated.onNext(())
+        }
         
         firstly {
             VisitHandler.fetchIphoneUser(in: self.contactStore)
         }
+            
         
-        .then { meContact -> Promise<[EKEvent]> in
+        
+        .then(on: .global()) { meContact -> Promise<[EKEvent]> in
             let (_, promise) = VisitHandler.fetchEvents(in: self.eventStore, excludeLocationOf: meContact,
                                                         from: now, to: until)
             return promise
         }
         
-        .then { events -> Promise<[Visit]> in
+        .then(on: .global()) { events -> Promise<[Visit]> in
             let (progressObservable, promise) = VisitHandler.packEventsToVisits(with: events)
             
             progressObservable.observeOn(MainScheduler.instance).subscribe(onNext: { progress in
@@ -107,12 +111,12 @@ class AppointmentListViewModel {
             return promise
         }
         
-        .then { visits -> Promise<[Visit]> in
+        .then(on: .global()) { visits -> Promise<[Visit]> in
             let (_, promise) = VisitHandler.mergeVisits(visits)
             return promise
         }
         
-        .then { visits -> Promise<[Visit]> in
+        .then(on: .global()) { visits -> Promise<[Visit]> in
             let (progressObservable, promise) = VisitHandler.assignContactsToVisits(visits, with: self.contactStore)
             
             progressObservable.observeOn(MainScheduler.instance).subscribe(onNext: { progress in

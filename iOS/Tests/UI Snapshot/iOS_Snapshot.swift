@@ -29,22 +29,21 @@ class SmartNetworkingSnapshot: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
-        if app.alerts["“SmartNetworking” Would Like to Access Your Calendar"].exists {
-            app.alerts["“SmartNetworking” Would Like to Access Your Calendar"].buttons["OK"].tap()
-        }
+        sleep(3)
         
-        if app.alerts["„SmartNetworking“ möchte auf deinen Kalender zugreifen"].exists {
-            app.alerts["„SmartNetworking“ möchte auf deinen Kalender zugreifen"].buttons["OK"].tap()
+        addUIInterruptionMonitor(withDescription: "Calendar Access") { (alert) -> Bool in
+            alert.buttons["OK"].tap()
+            return true
         }
+        app.tap()
         
+        sleep(3)
         
-        if app.alerts["“SmartNetworking” Would Like to Access Your Contacts"].exists {
-            app.alerts["“SmartNetworking” Would Like to Access Your Contacts"].buttons["OK"].tap()
+        addUIInterruptionMonitor(withDescription: "Contacts Access") { (alert) -> Bool in
+            alert.buttons["OK"].tap()
+            return true
         }
-        
-        if app.alerts["„SmartNetworking“ möchte auf deine Kontakte zugreifen"].exists {
-            app.alerts["„SmartNetworking“ möchte auf deine Kontakte zugreifen"].buttons["OK"].tap()
-        }
+        app.tap()
         
         snapshot("Overview", timeWaitingForIdle: 5)
         
@@ -57,6 +56,8 @@ class SmartNetworkingSnapshot: XCTestCase {
             collectionViewsQuery.staticTexts["Atlanta, Vereinigte Staaten"].tap()
         }
         
+        sleep(1)
+        
         snapshot("One opened")
         
         if collectionViewsQuery.staticTexts["Munich, Germany"].exists {
@@ -66,6 +67,8 @@ class SmartNetworkingSnapshot: XCTestCase {
         if collectionViewsQuery.staticTexts["München, Deutschland"].exists {
             collectionViewsQuery.staticTexts["München, Deutschland"].tap()
         }
+        
+        sleep(1)
         
         snapshot("Two opened")
         
