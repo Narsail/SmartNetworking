@@ -62,6 +62,7 @@
 		2AB6E67A1FC74EB400629DBC /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB6E6791FC74EB400629DBC /* Environment.swift */; };
 		2AB6E6821FC7527A00629DBC /* iOS_Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB6E6811FC7527A00629DBC /* iOS_Snapshot.swift */; };
 		2AB6E68A1FC7529900629DBC /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB6E61E1FC74DB800629DBC /* SnapshotHelper.swift */; };
+		2AB6E68C1FC78E8800629DBC /* Matchfile in Resources */ = {isa = PBXBuildFile; fileRef = 2AB6E68B1FC78E8800629DBC /* Matchfile */; };
 		2ACC4CF11FB9D97C00401B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4CF01FB9D97C00401B75 /* AppDelegate.swift */; };
 		2ACC4CF61FB9D97C00401B75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4CF41FB9D97C00401B75 /* Main.storyboard */; };
 		2ACC4CFB1FB9D97C00401B75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4CF91FB9D97C00401B75 /* LaunchScreen.storyboard */; };
@@ -168,6 +169,7 @@
 		2AB6E67F1FC7527A00629DBC /* iOS Snapshot.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Snapshot.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AB6E6811FC7527A00629DBC /* iOS_Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Snapshot.swift; sourceTree = "<group>"; };
 		2AB6E6831FC7527A00629DBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AB6E68B1FC78E8800629DBC /* Matchfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Matchfile; sourceTree = "<group>"; };
 		2ACC4CED1FB9D97C00401B75 /* SmartNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACC4CF01FB9D97C00401B75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ACC4CF51FB9D97C00401B75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				2AB6E6201FC74DB800629DBC /* Fastfile */,
 				2AB6E6211FC74DB800629DBC /* metadata */,
 				2AB6E6421FC74DB800629DBC /* Snapfile */,
+				2AB6E68B1FC78E8800629DBC /* Matchfile */,
 			);
 			path = fastlane;
 			sourceTree = "<group>";
@@ -604,7 +607,7 @@
 					};
 					2ACC4CEC1FB9D97C00401B75 = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -650,6 +653,7 @@
 			files = (
 				2AB6E6531FC74DB900629DBC /* phone_number.txt in Resources */,
 				2AB6E64E1FC74DB900629DBC /* postal_code.txt in Resources */,
+				2AB6E68C1FC78E8800629DBC /* Matchfile in Resources */,
 				2AB6E6561FC74DB900629DBC /* email_address.txt in Resources */,
 				2ACC4D301FBA4FE600401B75 /* ContactCell.xib in Resources */,
 				2AB6E6431FC74DB900629DBC /* README.txt in Resources */,
@@ -1133,13 +1137,16 @@
 			baseConfigurationReference = 4631463E9A6F5711657DF4D6 /* Pods-SmartNetworking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2T87V487YG;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Application/Assets/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = david.SmartNetworkung;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "eb62554a-e307-456d-b062-e43b8e67cf82";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore david.SmartNetworkung";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1150,13 +1157,16 @@
 			baseConfigurationReference = 4554AA7447E441B080631E9D /* Pods-SmartNetworking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2T87V487YG;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Application/Assets/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = david.SmartNetworkung;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "eb62554a-e307-456d-b062-e43b8e67cf82";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore david.SmartNetworkung";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -46,6 +46,8 @@ class SmartNetworkingSnapshot: XCTestCase {
             app.alerts["„SmartNetworking“ möchte auf deine Kontakte zugreifen"].buttons["OK"].tap()
         }
         
+        snapshot("Overview", timeWaitingForIdle: 5)
+        
         let collectionViewsQuery = app.collectionViews
         
         if collectionViewsQuery.staticTexts["Atlanta, United States"].exists {
@@ -55,6 +57,8 @@ class SmartNetworkingSnapshot: XCTestCase {
             collectionViewsQuery.staticTexts["Atlanta, Vereinigte Staaten"].tap()
         }
         
+        snapshot("One opened")
+        
         if collectionViewsQuery.staticTexts["Munich, Germany"].exists {
             collectionViewsQuery.staticTexts["Munich, Germany"].tap()
         }
@@ -62,6 +66,8 @@ class SmartNetworkingSnapshot: XCTestCase {
         if collectionViewsQuery.staticTexts["München, Deutschland"].exists {
             collectionViewsQuery.staticTexts["München, Deutschland"].tap()
         }
+        
+        snapshot("Two opened")
         
     }
     
