@@ -13,9 +13,10 @@
 		2A4E95101FBE20D0002DB27D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E950F1FBE20D0002DB27D /* ProgressView.swift */; };
 		2A4E95121FBE394C002DB27D /* NoVisitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E95111FBE394C002DB27D /* NoVisitsView.swift */; };
 		2A4E95141FBE4C85002DB27D /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E95131FBE4C85002DB27D /* PermissionView.swift */; };
+		2A66F6001FC639300010E371 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A66F5FE1FC639300010E371 /* Localizable.strings */; };
+		2A66F6061FC63C770010E371 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A66F6041FC63C770010E371 /* InfoPlist.strings */; };
 		2ACC4CF11FB9D97C00401B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4CF01FB9D97C00401B75 /* AppDelegate.swift */; };
 		2ACC4CF61FB9D97C00401B75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4CF41FB9D97C00401B75 /* Main.storyboard */; };
-		2ACC4CF81FB9D97C00401B75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4CF71FB9D97C00401B75 /* Assets.xcassets */; };
 		2ACC4CFB1FB9D97C00401B75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4CF91FB9D97C00401B75 /* LaunchScreen.storyboard */; };
 		2ACC4D091FB9DBDC00401B75 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D081FB9DBDC00401B75 /* Strings.swift */; };
 		2ACC4D0B1FB9DC7B00401B75 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D0A1FB9DC7B00401B75 /* AppCoordinator.swift */; };
@@ -58,10 +59,15 @@
 		2A4E950F1FBE20D0002DB27D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		2A4E95111FBE394C002DB27D /* NoVisitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoVisitsView.swift; sourceTree = "<group>"; };
 		2A4E95131FBE4C85002DB27D /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
+		2A66F5FF1FC639300010E371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2A66F6011FC639400010E371 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		2A66F6021FC639400010E371 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2A66F6031FC639400010E371 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2A66F6051FC63C770010E371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2A66F6071FC63C7B0010E371 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2ACC4CED1FB9D97C00401B75 /* SmartNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACC4CF01FB9D97C00401B75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ACC4CF51FB9D97C00401B75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2ACC4CF71FB9D97C00401B75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2ACC4CFA1FB9D97C00401B75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2ACC4CFC1FB9D97C00401B75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ACC4D081FB9DBDC00401B75 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -188,9 +194,10 @@
 			isa = PBXGroup;
 			children = (
 				2ACC4CF41FB9D97C00401B75 /* Main.storyboard */,
-				2ACC4CF71FB9D97C00401B75 /* Assets.xcassets */,
 				2ACC4CF91FB9D97C00401B75 /* LaunchScreen.storyboard */,
 				2ACC4CFC1FB9D97C00401B75 /* Info.plist */,
+				2A66F5FE1FC639300010E371 /* Localizable.strings */,
+				2A66F6041FC63C770010E371 /* InfoPlist.strings */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -322,6 +329,7 @@
 				F916E4FC46883F9FFFBE0BB7 /* [CP] Embed Pods Frameworks */,
 				6D81A27CD562DDE23F9CEDFE /* [CP] Copy Pods Resources */,
 				2ACC4D0F1FB9DCE500401B75 /* SwiftLint */,
+				2A66F5F81FC635D70010E371 /* Barty Crouch */,
 			);
 			buildRules = (
 			);
@@ -361,6 +369,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 2ACC4CE41FB9D97C00401B75;
 			productRefGroup = 2ACC4CEE1FB9D97C00401B75 /* Products */;
@@ -386,9 +395,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ACC4D301FBA4FE600401B75 /* ContactCell.xib in Resources */,
+				2A66F6061FC63C770010E371 /* InfoPlist.strings in Resources */,
 				2ACC4D181FB9DF2D00401B75 /* .swiftlint.yml in Resources */,
+				2A66F6001FC639300010E371 /* Localizable.strings in Resources */,
 				2ACC4CFB1FB9D97C00401B75 /* LaunchScreen.storyboard in Resources */,
-				2ACC4CF81FB9D97C00401B75 /* Assets.xcassets in Resources */,
 				2ACC4CF61FB9D97C00401B75 /* Main.storyboard in Resources */,
 				2ACC4D2E1FBA494F00401B75 /* AppointmentCell.xib in Resources */,
 			);
@@ -416,6 +426,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS Unit Tests/Pods-iOS Unit Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		2A66F5F81FC635D70010E371 /* Barty Crouch */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Barty Crouch";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/BartyCrouch/bartycrouch\" code -p \"$PROJECT_DIR/iOS/Application/Source\" -l \"$PROJECT_DIR/iOS/Application/Assets\" -a -s -v -e";
 		};
 		2ACC4D0F1FB9DCE500401B75 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -576,10 +600,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2A66F5FE1FC639300010E371 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A66F5FF1FC639300010E371 /* Base */,
+				2A66F6031FC639400010E371 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		2A66F6041FC63C770010E371 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A66F6051FC63C770010E371 /* Base */,
+				2A66F6071FC63C7B0010E371 /* de */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		2ACC4CF41FB9D97C00401B75 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2ACC4CF51FB9D97C00401B75 /* Base */,
+				2A66F6011FC639400010E371 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -588,6 +631,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2ACC4CFA1FB9D97C00401B75 /* Base */,
+				2A66F6021FC639400010E371 /* de */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -636,6 +680,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -693,6 +738,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

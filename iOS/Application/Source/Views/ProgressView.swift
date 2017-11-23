@@ -15,7 +15,6 @@ class ProgressView: UIView {
     let title: UILabel = {
         let label = UILabel()
         
-        label.text = StringConstants.Progress.processAppointments
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: Constants.Labels.viewForEmptyCollectionViewLabelFontSize)

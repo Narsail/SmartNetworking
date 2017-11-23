@@ -1,0 +1,24 @@
+
+/* Close Button */
+"navigation.closeButton" = "Schließen";
+
+/* Give access to the Calendar. */
+"permission.calendarPermission" = "Bitte öffne deine Einstellungen und gib deine Kalender frei.";
+
+/* Give access to your Contacts. */
+"permission.contactPermission" = "Bitte öffne deine Einstellungen und gib deine Kontakte frei.";
+
+/* A Button to go to the Settings. */
+"permission.goToSettingsButton" = "Öffne die Einstellungen.";
+
+/* Progress of processing the Appointments. */
+"progress.processAppointments" = "Verarbeite die Kalender Termine...";
+
+/* Progress of processing the Contacts. */
+"progress.processContacts" = "Verarbeite die Kontakte für jeden Besuch...";
+
+/* A Visit to a City. */
+"visits.noVisits" = "Du hast keine Besuche in den nächsten 30 Tage geplant.";
+
+/* A Visit to a City. */
+"visits.title" = "Besuche";

@@ -1,0 +1,24 @@
+
+/* Close Button */
+"navigation.closeButton" = "";
+
+/* Give access to the Calendar. */
+"permission.calendarPermission" = "";
+
+/* Give access to your Contacts. */
+"permission.contactPermission" = "";
+
+/* A Button to go to the Settings. */
+"permission.goToSettingsButton" = "";
+
+/* Progress of processing the Appointments. */
+"progress.processAppointments" = "";
+
+/* Progress of processing the Contacts. */
+"progress.processContacts" = "";
+
+/* A Visit to a City. */
+"visits.noVisits" = "";
+
+/* A Visit to a City. */
+"visits.title" = "";

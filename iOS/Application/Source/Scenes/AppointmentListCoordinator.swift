@@ -28,7 +28,7 @@ class AppointmentListCoordinator: BaseCoordinator<Void> {
         viewModel.displayContact?.subscribe(onNext: { contactViewController in
             
             let navigationController = UINavigationController(rootViewController: contactViewController)
-            let backButton = UIBarButtonItem(title: StringConstants.Navigation.backButton,
+            let backButton = UIBarButtonItem(title: StringConstants.Navigation.closeButton,
                                              style: UIBarButtonItemStyle.plain, target: self, action: nil)
             
             contactViewController.navigationItem.leftBarButtonItem = backButton

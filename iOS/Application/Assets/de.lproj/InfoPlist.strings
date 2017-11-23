@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  SmartNetworking
+
+  Created by David Moeller on 23.11.17.
+  Copyright © 2017 David Moeller. All rights reserved.
+*/
+
+"NSContactsUsageDescription" = "Der Zugang zu deinen Kontakten wird benötigt, um sie deinen Stadt besuchen zuzuordnen.";
+"NSCalendarsUsageDescription" = "Der Zugang zu deinen Kalendern wird benötigt, um deine Stadtbesuche erkennen zu können.";

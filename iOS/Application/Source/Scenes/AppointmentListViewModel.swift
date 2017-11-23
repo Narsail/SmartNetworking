@@ -83,39 +83,65 @@ class AppointmentListViewModel {
         self.adapterDataSource.appointments = []
         self.contentUpdated.onNext(())
         
-//        // prepare Data
-//        let (progressObservable, appointmentsPromise) = VisitHandler.prepareAppointments(
-//            with: self.eventStore, and: self.contactStore, from: now, to: until
-//        )
-//
-//        // Update the Progress View
-//        progressObservable.observeOn(MainScheduler.instance).subscribe(onNext: { progress in
-//            guard let progressView = self.adapterDataSource.viewForEmptyCollectionView as? ProgressView else { return }
-//            progressView.progressView.setProgress(Float(progress), animated: true)
-//        }).disposed(by: disposeBag)
-//
-//        // Handle the finished Appointments
-//
-//        firstly {
-//            appointmentsPromise
-//        }
-//
-//        .then { appointments -> Void in
-//            // Put it into the IG List
-//            self.adapterDataSource.appointments = appointments
-//            // Remove View
-//            if appointments.count < 1 {
-//                self.adapterDataSource.viewForEmptyCollectionView = NoVisitsView()
-//            } else {
-//                self.adapterDataSource.viewForEmptyCollectionView = nil
-//            }
-//            // Reload IG List
-//            self.contentUpdated.onNext(())
-//        }
-//
-//        .catch { error in
-//            print("Loading Appointments failed with \(error)")
-//        }
+        firstly {
+            VisitHandler.fetchIphoneUser(in: self.contactStore)
+        }
+        
+        .then { meContact -> Promise<[EKEvent]> in
+            let (_, promise) = VisitHandler.fetchEvents(in: self.eventStore, excludeLocationOf: meContact,
+                                                        from: now, to: until)
+            return promise
+        }
+        
+        .then { events -> Promise<[Visit]> in
+            let (progressObservable, promise) = VisitHandler.packEventsToVisits(with: events)
+            
+            progressObservable.observeOn(MainScheduler.instance).subscribe(onNext: { progress in
+                guard let progressView = self.adapterDataSource.viewForEmptyCollectionView as? ProgressView else {
+                    return
+                }
+                progressView.title.text = StringConstants.Progress.processAppointments
+                progressView.progressView.setProgress(Float(progress), animated: true)
+            }).disposed(by: self.disposeBag)
+            
+            return promise
+        }
+        
+        .then { visits -> Promise<[Visit]> in
+            let (_, promise) = VisitHandler.mergeVisits(visits)
+            return promise
+        }
+        
+        .then { visits -> Promise<[Visit]> in
+            let (progressObservable, promise) = VisitHandler.assignContactsToVisits(visits, with: self.contactStore)
+            
+            progressObservable.observeOn(MainScheduler.instance).subscribe(onNext: { progress in
+                guard let progressView = self.adapterDataSource.viewForEmptyCollectionView as? ProgressView else {
+                    return
+                }
+                progressView.title.text = StringConstants.Progress.processContacts
+                progressView.progressView.setProgress(Float(progress), animated: true)
+            }).disposed(by: self.disposeBag)
+            
+            return promise
+        }
+
+        .then { visits -> Void in
+            // Put it into the IG List
+            self.adapterDataSource.appointments = visits
+            // Remove View
+            if visits.count < 1 {
+                self.adapterDataSource.viewForEmptyCollectionView = NoVisitsView()
+            } else {
+                self.adapterDataSource.viewForEmptyCollectionView = nil
+            }
+            // Reload IG List
+            self.contentUpdated.onNext(())
+        }
+
+        .catch { error in
+            print("Loading Appointments failed with \(error)")
+        }
         
     }
     

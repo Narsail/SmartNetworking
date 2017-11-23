@@ -79,7 +79,6 @@ struct VisitHandler {
                     
                     promise = promise.then { visits -> Promise<([Visit], Location)> in
                         let key = Key<Location>(event.eventIdentifier)
-                        
                         if let location = Defaults().get(for: key) {
                             return Promise(value: (visits, location))
                         } else {
@@ -88,7 +87,11 @@ struct VisitHandler {
                                     throw LocationError.locationNotFoundByGeoCoder
                                 }
                                 
-                                return Promise(value: (visits, Location(city: city, country: country)))
+                                let location = Location(city: city, country: country)
+                                
+                                Defaults().set(location, for: key)
+                                
+                                return Promise(value: (visits, location))
                             }
                         }
                     }.then { (visits, location) in
@@ -96,7 +99,10 @@ struct VisitHandler {
                         eventsProcessed += 1
                         progressSubject.onNext(Double(eventsProcessed) / Double(totalAmountOfEvents))
                         // Return
-                        return Promise(value: visits + [Visit(location: location, from: event.startDate, toDate: event.endDate, contacts: [])])
+                        return Promise(value: visits + [Visit(location: location,
+                                                              from: event.startDate,
+                                                              toDate: event.endDate,
+                                                              contacts: [])])
                     }
                     
                 }
@@ -105,6 +111,7 @@ struct VisitHandler {
             
             promise.then { visits -> Void in
                 
+                print("")
                 success(visits)
                 
             }.catch { error in
@@ -172,9 +179,14 @@ struct VisitHandler {
     
     /// Assign Contacts to the Visits
     
-    static func assignContactsToVisits(_ visits: [Visit], with contactStore: CNContactStore) -> Promise<[Visit]> {
+    static func assignContactsToVisits(_ visits: [Visit],
+                                       with contactStore: CNContactStore) -> (Observable<Double>, Promise<[Visit]>) {
         
-        return Promise { success, _ in
+        let progressSubject = PublishSubject<Double>()
+        let totalAmountOfVisits = visits.count
+        var visitsProcessed = 0
+        
+        return (progressSubject, Promise { success, _ in
             
             var visitsWithContacts = [Visit]()
             
@@ -224,37 +236,14 @@ struct VisitHandler {
                     
                 }
                 
+                visitsProcessed += 1
+                progressSubject.onNext(Double(visitsProcessed) / Double(totalAmountOfVisits))
+                
             }
             
             success(visitsWithContacts)
             
-        }
-        
-    }
-    
-    
-    /// Find a Match between the Event Location and the Postal Adress
-    
-    static func isMatchBetween(_ event: EKEvent, _ adress: CNPostalAddress) -> Bool {
-        
-        // Check that PostalCode is included in Event Location
-        return isMatchBetween(event.location, adress.postalCode)
-        
-    }
-    
-    static func isMatchBetween(_ eventLocation: String?, _ adressStrings: String...) -> Bool {
-        
-        guard let locationString = eventLocation else { return false }
-        
-        var match = true
-        
-        adressStrings.forEach { adressString in
-            if !locationString.contains(find: adressString) {
-                match = false
-            }
-        }
-        
-        return match
+        })
         
     }
     

@@ -14,6 +14,7 @@ target 'SmartNetworking' do
   pod "Timepiece"
   pod "PromiseKit", "~> 4.4", subspecs: ['CorePromise', 'CoreLocation']
   pod 'DefaultsKit'
+  pod 'BartyCrouch'
   
   target 'iOS Unit Tests' do
       inherit! :search_paths

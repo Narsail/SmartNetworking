@@ -22,7 +22,7 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Munich" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="0J7-C2-WdV">
                             <rect key="frame" x="0.0" y="0.0" width="746" height="158"/>
-                            <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="28"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -34,12 +34,12 @@
                         </label>
                     </subviews>
                 </stackView>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uM5-Ha-DM1">
-                    <rect key="frame" x="0.0" y="0.0" width="824" height="5"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uM5-Ha-DM1">
+                    <rect key="frame" x="0.0" y="0.0" width="824" height="139"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPz-Yj-E7n">
-                    <rect key="frame" x="0.0" y="331" width="824" height="5"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPz-Yj-E7n">
+                    <rect key="frame" x="0.0" y="197" width="824" height="139"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eal-Hd-fvq">
@@ -57,6 +57,7 @@
                 <constraint firstItem="uM5-Ha-DM1" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="0z5-qi-7ZG"/>
                 <constraint firstItem="aPz-Yj-E7n" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="D48-iH-LX5"/>
                 <constraint firstItem="tEX-yW-gS6" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="FXw-uq-5gx"/>
+                <constraint firstItem="aPz-Yj-E7n" firstAttribute="top" secondItem="eal-Hd-fvq" secondAttribute="bottom" constant="5" id="LPl-R9-kBw"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="tEX-yW-gS6" secondAttribute="bottom" constant="10" id="PWV-NL-yAa"/>
                 <constraint firstItem="eal-Hd-fvq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="SQd-GD-rfA"/>
                 <constraint firstItem="tEX-yW-gS6" firstAttribute="leading" secondItem="eal-Hd-fvq" secondAttribute="trailing" constant="10" id="Yic-TW-NvL"/>
@@ -65,6 +66,7 @@
                 <constraint firstItem="aPz-Yj-E7n" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="fCW-F7-Do1"/>
                 <constraint firstItem="aPz-Yj-E7n" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="lcP-fV-c6Z"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="tEX-yW-gS6" secondAttribute="trailing" constant="10" id="sgW-eu-Ft4"/>
+                <constraint firstItem="eal-Hd-fvq" firstAttribute="top" secondItem="uM5-Ha-DM1" secondAttribute="bottom" constant="5" id="tCF-AP-14H"/>
                 <constraint firstItem="eal-Hd-fvq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="v05-Al-zN8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

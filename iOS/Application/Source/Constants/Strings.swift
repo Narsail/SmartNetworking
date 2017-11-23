@@ -26,7 +26,10 @@ enum StringConstants {
             value: "Processing the Calendar Events...",
             comment: "Progress of processing the Appointments."
         )
-        
+        static let processContacts = NSLocalizedString("progress.processContacts",
+            value: "Processing the Contacts for each Visit...",
+            comment: "Progress of processing the Contacts."
+        )
     }
     
     enum Permission {
@@ -48,9 +51,9 @@ enum StringConstants {
     
     enum Navigation {
         
-        static let backButton = NSLocalizedString("navigation.backButton",
-            value: "Back",
-            comment: "Back Button"
+        static let closeButton = NSLocalizedString("navigation.closeButton",
+            value: "Close",
+            comment: "Close Button"
         )
         
     }
