@@ -1148,7 +1148,7 @@
 				PROVISIONING_PROFILE = "eb62554a-e307-456d-b062-e43b8e67cf82";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore david.SmartNetworkung";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1168,7 +1168,7 @@
 				PROVISIONING_PROFILE = "eb62554a-e307-456d-b062-e43b8e67cf82";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore david.SmartNetworkung";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
