@@ -11,13 +11,15 @@ import IGListKit
 
 class Visit {
     
+    let firstEventID: String
     let location: Location
     let from: Date
     let toDate: Date
     
     let contacts: [Contact]
     
-    init(location: Location, from: Date, toDate: Date, contacts: [Contact]) {
+    init(firstEventID: String, location: Location, from: Date, toDate: Date, contacts: [Contact]) {
+        self.firstEventID = firstEventID
         self.location = location
         self.from = from
         self.toDate = toDate
@@ -25,14 +27,15 @@ class Visit {
     }
     
     func addContacts(_ contacts: [Contact]) -> Visit {
-        return Visit(location: self.location, from: self.from, toDate: self.toDate, contacts: self.contacts + contacts)
+        return Visit(firstEventID: self.firstEventID, location: self.location, from: self.from,
+                     toDate: self.toDate, contacts: self.contacts + contacts)
     }
 }
 
 extension Visit: ListDiffable {
     
     func diffIdentifier() -> NSObjectProtocol {
-        return (from.timeString(in: .full) + toDate.timeString(in: .full)) as NSString
+        return firstEventID as NSString
     }
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {

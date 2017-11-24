@@ -89,8 +89,6 @@ class AppointmentListViewModel {
             VisitHandler.fetchIphoneUser(in: self.contactStore)
         }
             
-        
-        
         .then(on: .global()) { meContact -> Promise<[EKEvent]> in
             let (_, promise) = VisitHandler.fetchEvents(in: self.eventStore, excludeLocationOf: meContact,
                                                         from: now, to: until)

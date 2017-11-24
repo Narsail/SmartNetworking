@@ -141,7 +141,8 @@ struct VisitHandler {
                         progressSubject.onNext(Double(eventsProcessed) / Double(totalAmountOfEvents))
                         // Return
                         if let location = location {
-                            return Promise(value: visits + [Visit(location: location,
+                            return Promise(value: visits + [Visit(firstEventID: event.eventIdentifier,
+                                                                  location: location,
                                                                   from: event.startDate,
                                                                   toDate: event.endDate,
                                                                   contacts: [])])
@@ -201,7 +202,8 @@ struct VisitHandler {
             if let last = lastVisit {
                 
                 if last.location == visit.location {
-                    lastVisit = Visit(location: visit.location, from: last.from, toDate: visit.toDate, contacts: [])
+                    lastVisit = Visit(firstEventID: visit.firstEventID, location: visit.location,
+                                      from: last.from, toDate: visit.toDate, contacts: [])
                 } else {
                     mergedVisits.append(last)
                     lastVisit = visit
