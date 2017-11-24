@@ -43,7 +43,7 @@ platform :ios do
     match(type: "appstore")
     snapshot(reinstall_app: true)
     gym(scheme: "SmartNetworking") # Build your app - more options available
-    deliver(force: true)
+    deliver(force: true, submit_for_review: true, automatic_release: true)
     # frameit
   end
 
