@@ -40,6 +40,8 @@ platform :ios do
 
   desc "Deploy a new version to the App Store"
   lane :release do
+    build_number = increment_build_number()
+    commit_version_bump(message: "Bumped to Build #{build_number}", force: true, xcodeproj: 'SmartNetworking.xcodeproj')
     match(type: "appstore")
     snapshot(reinstall_app: true)
     gym(scheme: "SmartNetworking") # Build your app - more options available
