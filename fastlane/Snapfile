@@ -5,8 +5,7 @@ devices([
     "iPhone X",
     "iPhone 7",
     "iPhone 7 Plus",
-    "iPhone SE",
-    "iPad Pro (12.9-inch)",
+    "iPhone SE"
 ])
 
 languages([

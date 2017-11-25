@@ -239,6 +239,22 @@
 			path = Unit;
 			sourceTree = "<group>";
 		};
+		2A606DF11FC998EC0053B81B /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				2ACC4D0D1FB9DCB900401B75 /* BaseCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		2A606DF21FC999010053B81B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				2AB6E6791FC74EB400629DBC /* Environment.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		2AB6E61A1FC74DB800629DBC /* fastlane */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,7 +419,6 @@
 			children = (
 				2ACC4D241FBA081C00401B75 /* Views */,
 				2ACC4D211FBA07C500401B75 /* Sections */,
-				2ACC4D1E1FB9F38800401B75 /* Extensions */,
 				2ACC4D1B1FB9E33800401B75 /* Models */,
 				2ACC4D101FB9DD7900401B75 /* Scenes */,
 				2ACC4D0C1FB9DCA800401B75 /* Foundation */,
@@ -432,7 +447,6 @@
 			children = (
 				2ACC4D081FB9DBDC00401B75 /* Strings.swift */,
 				2ACC4D191FB9E27300401B75 /* Constants.swift */,
-				2AB6E6791FC74EB400629DBC /* Environment.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -440,7 +454,9 @@
 		2ACC4D0C1FB9DCA800401B75 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				2ACC4D0D1FB9DCB900401B75 /* BaseCoordinator.swift */,
+				2A606DF21FC999010053B81B /* Constants */,
+				2ACC4D1E1FB9F38800401B75 /* Extensions */,
+				2A606DF11FC998EC0053B81B /* Coordinator */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
