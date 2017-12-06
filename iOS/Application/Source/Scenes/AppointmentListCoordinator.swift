@@ -23,21 +23,25 @@ class AppointmentListCoordinator: BaseCoordinator<Void> {
         let viewModel = AppointmentListViewModel()
         let viewController = AppointmentListViewController(viewModel: viewModel)
         
-        self.rootViewController.present(viewController, animated: true, completion: nil)
+        var navigationViewController = UINavigationController(rootViewController: viewController)
+        
+        if let navigationController = self.rootViewController as? UINavigationController {
+            navigationViewController = navigationController
+        }
+        
+        navigationViewController.navigationBar.barTintColor = .white
+        navigationViewController.navigationBar.isTranslucent = true
+        navigationViewController.navigationBar.shadowImage = UIImage()
+        
+        if self.rootViewController is UINavigationController {
+            navigationViewController.viewControllers = [viewController]
+        } else {
+            self.rootViewController.present(navigationViewController, animated: true, completion: nil)
+        }
         
         viewModel.displayContact?.subscribe(onNext: { contactViewController in
-            
-            let navigationController = UINavigationController(rootViewController: contactViewController)
-            let backButton = UIBarButtonItem(title: StringConstants.Navigation.closeButton,
-                                             style: UIBarButtonItemStyle.plain, target: self, action: nil)
-            
-            contactViewController.navigationItem.leftBarButtonItem = backButton
-            
-            viewController.present(navigationController, animated: true, completion: nil)
-            
-            backButton.rx.tap.subscribe(onNext: {
-                viewController.dismiss(animated: true, completion: nil)
-            }).disposed(by: self.disposeBag)
+
+            navigationViewController.pushViewController(contactViewController, animated: true)
             
         }, onError: { error in print(error) }).disposed(by: self.disposeBag)
         

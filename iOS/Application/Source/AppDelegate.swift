@@ -8,6 +8,8 @@
 
 import UIKit
 import RxSwift
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let window = UIWindow()
         self.window = window
+        
+        if Environment.isDebug {
+            Fabric.with([Crashlytics.self])
+        } else {
+            Fabric.with([Crashlytics.self, Answers.self])
+        }
         
         // Start the AppCoordinator
         appCoordinator = AppCoordinator(window: window)

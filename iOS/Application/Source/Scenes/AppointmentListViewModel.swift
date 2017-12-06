@@ -16,26 +16,32 @@ import RxSwift
 import PromiseKit
 import ContactsUI
 
-class AppointmentListViewModel {
+class AppointmentListViewModel: NSObject {
     
     let disposeBag = DisposeBag()
     
-    let adapterDataSource: AppointmentListAdapterDataSource
+    weak var displayDelegate: ListDisplayDelegate?
     
     let eventStore = EKEventStore()
     let contactStore = CNContactStore()
     
+    // MARK: - Variables
+    
+    var appointments = [Visit]()
+    let title: String
+    let displayContactID = PublishSubject<String>()
+    var viewForEmptyCollectionView: UIView?
+    
     // MARK: - Outputs
     
     let contentUpdated = PublishSubject<Void>()
-    var displayContact: Observable<CNContactViewController>? = nil
+    var displayContact: Observable<CNContactViewController>?
     
-    init() {
+    override init() {
         
-        let displayContactID = PublishSubject<String>()
+        self.title = StringConstants.Visits.title
         
-        self.adapterDataSource = AppointmentListAdapterDataSource(title: StringConstants.Visits.title,
-                                                                  displayContact: displayContactID)
+        super.init()
         
         displayContact = displayContactID.map { contactID in
             return try VisitHandler.getContactViewController(for: contactID, with: self.contactStore)
@@ -80,8 +86,8 @@ class AppointmentListViewModel {
         
         // Set View for Empty CollectionView
         DispatchQueue.main.async {
-            self.adapterDataSource.viewForEmptyCollectionView = ProgressView()
-            self.adapterDataSource.appointments = []
+            self.viewForEmptyCollectionView = ProgressView()
+            self.appointments = []
             self.contentUpdated.onNext(())
         }
         
@@ -99,7 +105,7 @@ class AppointmentListViewModel {
             let (progressObservable, promise) = VisitHandler.packEventsToVisits(with: events)
             
             progressObservable.observeOn(MainScheduler.instance).subscribe(onNext: { progress in
-                guard let progressView = self.adapterDataSource.viewForEmptyCollectionView as? ProgressView else {
+                guard let progressView = self.viewForEmptyCollectionView as? ProgressView else {
                     return
                 }
                 progressView.title.text = StringConstants.Progress.processAppointments
@@ -118,7 +124,7 @@ class AppointmentListViewModel {
             let (progressObservable, promise) = VisitHandler.assignContactsToVisits(visits, with: self.contactStore)
             
             progressObservable.observeOn(MainScheduler.instance).subscribe(onNext: { progress in
-                guard let progressView = self.adapterDataSource.viewForEmptyCollectionView as? ProgressView else {
+                guard let progressView = self.viewForEmptyCollectionView as? ProgressView else {
                     return
                 }
                 progressView.title.text = StringConstants.Progress.processContacts
@@ -130,12 +136,12 @@ class AppointmentListViewModel {
 
         .then { visits -> Void in
             // Put it into the IG List
-            self.adapterDataSource.appointments = visits
+            self.appointments = visits
             // Remove View
             if visits.count < 1 {
-                self.adapterDataSource.viewForEmptyCollectionView = NoVisitsView()
+                self.viewForEmptyCollectionView = NoVisitsView()
             } else {
-                self.adapterDataSource.viewForEmptyCollectionView = nil
+                self.viewForEmptyCollectionView = nil
             }
             // Reload IG List
             self.contentUpdated.onNext(())
@@ -149,39 +155,22 @@ class AppointmentListViewModel {
     
     func needCalendarPermission() {
         
-        self.adapterDataSource.viewForEmptyCollectionView = PermissionView(state: .calendars)
+        self.viewForEmptyCollectionView = PermissionView(state: .calendars)
         self.contentUpdated.onNext(())
         
     }
     
     func needContactPermission() {
         
-        self.adapterDataSource.viewForEmptyCollectionView = PermissionView(state: .contacts)
+        self.viewForEmptyCollectionView = PermissionView(state: .contacts)
         self.contentUpdated.onNext(())
         
     }
 }
 
-class AppointmentListAdapterDataSource: NSObject {
-    
-    var appointments = [Visit]()
-    let title: String
-    var viewForEmptyCollectionView: UIView?
-    
-    let displayContact: PublishSubject<String>
-    
-    init(title: String, displayContact: PublishSubject<String>) {
-        self.title = title
-        self.displayContact = displayContact
-        super.init()
-    }
-    
-}
-
-extension AppointmentListAdapterDataSource: ListAdapterDataSource {
+extension AppointmentListViewModel: ListAdapterDataSource {
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        
         if appointments.count > 0 {
             return [self.title as NSString] + appointments
         }
@@ -192,9 +181,13 @@ extension AppointmentListAdapterDataSource: ListAdapterDataSource {
         
         switch object {
         case is Visit:
-            return AppointmentSectionController(displayContact: self.displayContact)
+            return AppointmentSectionController(displayContact: self.displayContactID)
+        case is NSString:
+            let sectionController = TitleSectionController()
+            sectionController.displayDelegate = self.displayDelegate
+            return sectionController
         default:
-            return TitleSectionController()
+            fatalError("Unknown Object wants Section Contoller")
         }
         
     }

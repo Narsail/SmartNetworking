@@ -1,4 +1,7 @@
 
+/* A Visit to a City. */
+"visits.title" = "Visits";
+
 /* Close Button */
 "navigation.closeButton" = "";
 
@@ -19,6 +22,3 @@
 
 /* A Visit to a City. */
 "visits.noVisits" = "";
-
-/* A Visit to a City. */
-"visits.title" = "";

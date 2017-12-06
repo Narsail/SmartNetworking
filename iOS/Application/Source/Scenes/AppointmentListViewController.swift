@@ -46,6 +46,8 @@ class AppointmentListViewController: UIViewController {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
+        
+        self.viewModel.displayDelegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -70,7 +72,7 @@ class AppointmentListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if viewModel.adapterDataSource.appointments.isEmpty {
+        if viewModel.appointments.isEmpty {
             self.viewModel.checkStatus()
         }
 
@@ -99,13 +101,41 @@ class AppointmentListViewController: UIViewController {
         collectionView.refreshControl = self.refreshControl
         
         adapter.collectionView = collectionView
-        adapter.dataSource = viewModel.adapterDataSource
+        adapter.dataSource = viewModel
         
         self.viewModel.contentUpdated.observeOn(MainScheduler.instance).subscribe(onNext: { _ in
             self.refreshControl.endRefreshing()
             self.adapter.reloadData(completion: nil)
         }).disposed(by: self.disposeBag)
         
+    }
+    
+}
+
+extension AppointmentListViewController: ListDisplayDelegate {
+    
+    func listAdapter(_ listAdapter: ListAdapter, willDisplay sectionController: ListSectionController,
+                     cell: UICollectionViewCell, at index: Int) {
+        return
+    }
+    
+    func listAdapter(_ listAdapter: ListAdapter, didEndDisplaying sectionController: ListSectionController,
+                     cell: UICollectionViewCell, at index: Int) {
+        return
+    }
+    
+    func listAdapter(_ listAdapter: ListAdapter, willDisplay sectionController: ListSectionController) {
+        if sectionController is TitleSectionController {
+            self.navigationItem.title = nil
+        }
+        return
+    }
+    
+    func listAdapter(_ listAdapter: ListAdapter, didEndDisplaying sectionController: ListSectionController) {
+        if let sectionController = sectionController as? TitleSectionController {
+            self.navigationItem.title = sectionController.title
+        }
+        return
     }
     
 }

@@ -15,7 +15,7 @@ class TitleSectionController: ListSectionController {
     
     override init() {
         super.init()
-        inset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+        inset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
     }
     
     override func numberOfItems() -> Int {
