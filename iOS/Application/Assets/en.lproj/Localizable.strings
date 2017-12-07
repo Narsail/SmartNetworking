@@ -1,4 +1,13 @@
 
+/* X Days ago */
+"%d days ago" = "";
+
+/* X Months ago */
+"%d months ago" = "";
+
+/* X Years ago */
+"%d years ago" = "";
+
 /* Close Button */
 "navigation.closeButton" = "";
 

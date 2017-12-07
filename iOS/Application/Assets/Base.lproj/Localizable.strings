@@ -1,24 +1,33 @@
 
-/* A Visit to a City. */
-"visits.title" = "Visits";
+/* X Days ago */
+"%d days ago" = "%d days ago";
+
+/* X Months ago */
+"%d months ago" = "%d months ago";
+
+/* X Years ago */
+"%d years ago" = "%d years ago";
 
 /* Close Button */
-"navigation.closeButton" = "";
+"navigation.closeButton" = "Close";
 
 /* Give access to the Calendar. */
-"permission.calendarPermission" = "";
+"permission.calendarPermission" = "Please give access to the Calendar.";
 
 /* Give access to your Contacts. */
-"permission.contactPermission" = "";
+"permission.contactPermission" = "Please give access to your Contacts.";
 
 /* A Button to go to the Settings. */
-"permission.goToSettingsButton" = "";
+"permission.goToSettingsButton" = "Go to Settings.";
 
 /* Progress of processing the Appointments. */
-"progress.processAppointments" = "";
+"progress.processAppointments" = "Processing the Calendar Events...";
 
 /* Progress of processing the Contacts. */
-"progress.processContacts" = "";
+"progress.processContacts" = "Processing the Contacts for each Visit...";
 
 /* A Visit to a City. */
-"visits.noVisits" = "";
+"visits.noVisits" = "You have no visits planned within the next 30 days.";
+
+/* A Visit to a City. */
+"visits.title" = "Visits";

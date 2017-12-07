@@ -1,4 +1,13 @@
 
+/* X Days ago */
+"%d days ago" = "vor %d Tagen";
+
+/* X Months ago */
+"%d months ago" = "vor %d Monaten";
+
+/* X Years ago */
+"%d years ago" = "vor %d Jahren";
+
 /* Close Button */
 "navigation.closeButton" = "Schließen";
 
