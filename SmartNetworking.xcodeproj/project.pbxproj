@@ -10,9 +10,21 @@
 		1F3AF6B7559C292EF249D855 /* Pods_iOS_Unit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9195FC81516BC7D6D7FAFA /* Pods_iOS_Unit_Tests.framework */; };
 		2A1388E11FBBB61700B1C616 /* VisitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1388E01FBBB61700B1C616 /* VisitHandler.swift */; };
 		2A1388E31FBBBA3800B1C616 /* AppointmentHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1388E21FBBBA3800B1C616 /* AppointmentHandlerSpec.swift */; };
+		2A34828D1FD96C1B00938167 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A34828C1FD96C1B00938167 /* Date.swift */; };
+		2A3482941FD970D300938167 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A3482931FD970D300938167 /* NotificationCenter.framework */; };
+		2A3482971FD970D300938167 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3482961FD970D300938167 /* TodayViewController.swift */; };
+		2A34829A1FD970D300938167 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A3482981FD970D300938167 /* MainInterface.storyboard */; };
+		2A34829E1FD970D300938167 /* iOS Today Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2A3482921FD970D200938167 /* iOS Today Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2A4E95101FBE20D0002DB27D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E950F1FBE20D0002DB27D /* ProgressView.swift */; };
 		2A4E95121FBE394C002DB27D /* NoVisitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E95111FBE394C002DB27D /* NoVisitsView.swift */; };
 		2A4E95141FBE4C85002DB27D /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E95131FBE4C85002DB27D /* PermissionView.swift */; };
+		2A5A496A1FD9E903002851D4 /* VisitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1388E01FBBB61700B1C616 /* VisitHandler.swift */; };
+		2A5A496B1FD9E97F002851D4 /* Visit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D1C1FB9E34700401B75 /* Visit.swift */; };
+		2A5A496C1FD9E997002851D4 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB6E6791FC74EB400629DBC /* Environment.swift */; };
+		2A5A496D1FD9EA66002851D4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A66F5FE1FC639300010E371 /* Localizable.strings */; };
+		2A5A496E1FD9EA6E002851D4 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D081FB9DBDC00401B75 /* Strings.swift */; };
+		2A5A496F1FDAAA0D002851D4 /* NoVisitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E95111FBE394C002DB27D /* NoVisitsView.swift */; };
+		2A5A49701FDAAA2B002851D4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D191FB9E27300401B75 /* Constants.swift */; };
 		2A66F6001FC639300010E371 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A66F5FE1FC639300010E371 /* Localizable.strings */; };
 		2A66F6061FC63C770010E371 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A66F6041FC63C770010E371 /* InfoPlist.strings */; };
 		2AA2D15F1FC7054B00D73EA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA2D15E1FC7054B00D73EA2 /* Assets.xcassets */; };
@@ -85,6 +97,8 @@
 		2ACC4D301FBA4FE600401B75 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4D2F1FBA4FE600401B75 /* ContactCell.xib */; };
 		2ACC4D321FBA509100401B75 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D311FBA509100401B75 /* ContactCell.swift */; };
 		498E11EB0D5E1FAFE20B1EB9 /* Pods_SmartNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968318BF54D6888262529A3C /* Pods_SmartNetworking.framework */; };
+		57F737DFA3212E31801CC541 /* Pods_iOS_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BAFFA0DD4DC52384A93E68 /* Pods_iOS_Application.framework */; };
+		D307953B6E907E54AC4FA7D5 /* Pods_iOS_Today_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671E0F937D009618EA29538D /* Pods_iOS_Today_Widget.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +109,13 @@
 			remoteGlobalIDString = 2ACC4CEC1FB9D97C00401B75;
 			remoteInfo = SmartNetworking;
 		};
+		2A34829C1FD970D300938167 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ACC4CE51FB9D97C00401B75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A3482911FD970D200938167;
+			remoteInfo = "SmartNetworking - iOS Today Extension";
+		};
 		2AB6E6841FC7527A00629DBC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2ACC4CE51FB9D97C00401B75 /* Project object */;
@@ -104,6 +125,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2A3482A21FD970D300938167 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2A34829E1FD970D300938167 /* iOS Today Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		00BADE03F99E03E67B2C3813 /* Pods_SmartNetworkung.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartNetworkung.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1388D51FBBB54000B1C616 /* iOS Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +146,12 @@
 		2A1388E01FBBB61700B1C616 /* VisitHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitHandler.swift; sourceTree = "<group>"; };
 		2A1388E21FBBBA3800B1C616 /* AppointmentHandlerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHandlerSpec.swift; sourceTree = "<group>"; };
 		2A1388E61FBBBE2E00B1C616 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		2A34828C1FD96C1B00938167 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		2A3482921FD970D200938167 /* iOS Today Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "iOS Today Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A3482931FD970D300938167 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		2A3482961FD970D300938167 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		2A3482991FD970D300938167 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		2A34829B1FD970D300938167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A4E950F1FBE20D0002DB27D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		2A4E95111FBE394C002DB27D /* NoVisitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoVisitsView.swift; sourceTree = "<group>"; };
 		2A4E95131FBE4C85002DB27D /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
@@ -195,7 +236,13 @@
 		2ACC4D311FBA509100401B75 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		4554AA7447E441B080631E9D /* Pods-SmartNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartNetworking/Pods-SmartNetworking.release.xcconfig"; sourceTree = "<group>"; };
 		4631463E9A6F5711657DF4D6 /* Pods-SmartNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartNetworking/Pods-SmartNetworking.debug.xcconfig"; sourceTree = "<group>"; };
+		572A7EECF0C3EB5DC9C51227 /* Pods-iOS Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Application.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Application/Pods-iOS Application.debug.xcconfig"; sourceTree = "<group>"; };
+		585547FC327EA3031092E93A /* Pods-iOS Today Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Today Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Today Widget/Pods-iOS Today Widget.debug.xcconfig"; sourceTree = "<group>"; };
+		5ADA00A1337003DD33792E23 /* Pods-iOS Today Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Today Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Today Widget/Pods-iOS Today Widget.release.xcconfig"; sourceTree = "<group>"; };
+		671E0F937D009618EA29538D /* Pods_iOS_Today_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Today_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71BAFFA0DD4DC52384A93E68 /* Pods_iOS_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		968318BF54D6888262529A3C /* Pods_SmartNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		968395C828ABA6BF208CEEC0 /* Pods-iOS Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Application.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Application/Pods-iOS Application.release.xcconfig"; sourceTree = "<group>"; };
 		9DE1AABC93EE7CE312F52863 /* Pods-SmartNetworkung.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartNetworkung.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartNetworkung/Pods-SmartNetworkung.release.xcconfig"; sourceTree = "<group>"; };
 		A593B79A4803E7C9B7DF5E6B /* Pods-iOS Unit Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Unit Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Unit Tests/Pods-iOS Unit Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E8294C1C8C720E815A999F28 /* Pods-iOS Unit Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Unit Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Unit Tests/Pods-iOS Unit Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +259,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2A34828F1FD970D200938167 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A3482941FD970D300938167 /* NotificationCenter.framework in Frameworks */,
+				D307953B6E907E54AC4FA7D5 /* Pods_iOS_Today_Widget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2AB6E67C1FC7527A00629DBC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -224,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				498E11EB0D5E1FAFE20B1EB9 /* Pods_SmartNetworking.framework in Frameworks */,
+				57F737DFA3212E31801CC541 /* Pods_iOS_Application.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +294,32 @@
 				2A1388E21FBBBA3800B1C616 /* AppointmentHandlerSpec.swift */,
 			);
 			path = Unit;
+			sourceTree = "<group>";
+		};
+		2A5A49671FD9E537002851D4 /* Today Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2A5A49691FD9E550002851D4 /* Source */,
+				2A5A49681FD9E54C002851D4 /* Assets */,
+			);
+			path = "Today Extension";
+			sourceTree = "<group>";
+		};
+		2A5A49681FD9E54C002851D4 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2A3482981FD970D300938167 /* MainInterface.storyboard */,
+				2A34829B1FD970D300938167 /* Info.plist */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2A5A49691FD9E550002851D4 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2A3482961FD970D300938167 /* TodayViewController.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		2A606DF11FC998EC0053B81B /* Coordinator */ = {
@@ -383,6 +466,7 @@
 				2ACC4CED1FB9D97C00401B75 /* SmartNetworking.app */,
 				2A1388D51FBBB54000B1C616 /* iOS Unit Tests.xctest */,
 				2AB6E67F1FC7527A00629DBC /* iOS Snapshot.xctest */,
+				2A3482921FD970D200938167 /* iOS Today Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -390,6 +474,7 @@
 		2ACC4D021FB9DABB00401B75 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				2A5A49671FD9E537002851D4 /* Today Extension */,
 				2ACC4D041FB9DAC400401B75 /* Application */,
 				2ACC4D031FB9DABF00401B75 /* Tests */,
 			);
@@ -484,6 +569,7 @@
 			isa = PBXGroup;
 			children = (
 				2ACC4D1F1FB9F39400401B75 /* String+Contains.swift */,
+				2A34828C1FD96C1B00938167 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -522,6 +608,10 @@
 				4554AA7447E441B080631E9D /* Pods-SmartNetworking.release.xcconfig */,
 				E8294C1C8C720E815A999F28 /* Pods-iOS Unit Tests.debug.xcconfig */,
 				A593B79A4803E7C9B7DF5E6B /* Pods-iOS Unit Tests.release.xcconfig */,
+				572A7EECF0C3EB5DC9C51227 /* Pods-iOS Application.debug.xcconfig */,
+				968395C828ABA6BF208CEEC0 /* Pods-iOS Application.release.xcconfig */,
+				585547FC327EA3031092E93A /* Pods-iOS Today Widget.debug.xcconfig */,
+				5ADA00A1337003DD33792E23 /* Pods-iOS Today Widget.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -532,6 +622,9 @@
 				00BADE03F99E03E67B2C3813 /* Pods_SmartNetworkung.framework */,
 				968318BF54D6888262529A3C /* Pods_SmartNetworking.framework */,
 				EE9195FC81516BC7D6D7FAFA /* Pods_iOS_Unit_Tests.framework */,
+				2A3482931FD970D300938167 /* NotificationCenter.framework */,
+				71BAFFA0DD4DC52384A93E68 /* Pods_iOS_Application.framework */,
+				671E0F937D009618EA29538D /* Pods_iOS_Today_Widget.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -560,6 +653,25 @@
 			productReference = 2A1388D51FBBB54000B1C616 /* iOS Unit Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		2A3482911FD970D200938167 /* iOS Today Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A34829F1FD970D300938167 /* Build configuration list for PBXNativeTarget "iOS Today Widget" */;
+			buildPhases = (
+				A9E92C218574602A249AD46F /* [CP] Check Pods Manifest.lock */,
+				2A34828E1FD970D200938167 /* Sources */,
+				2A34828F1FD970D200938167 /* Frameworks */,
+				2A3482901FD970D200938167 /* Resources */,
+				3378DAA2DF1494BE76A2EBA0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iOS Today Widget";
+			productName = "SmartNetworking - iOS Today Extension";
+			productReference = 2A3482921FD970D200938167 /* iOS Today Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		2AB6E67E1FC7527A00629DBC /* iOS Snapshot */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AB6E6861FC7527A00629DBC /* Build configuration list for PBXNativeTarget "iOS Snapshot" */;
@@ -578,9 +690,9 @@
 			productReference = 2AB6E67F1FC7527A00629DBC /* iOS Snapshot.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		2ACC4CEC1FB9D97C00401B75 /* SmartNetworking */ = {
+		2ACC4CEC1FB9D97C00401B75 /* iOS Application */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2ACC4CFF1FB9D97C00401B75 /* Build configuration list for PBXNativeTarget "SmartNetworking" */;
+			buildConfigurationList = 2ACC4CFF1FB9D97C00401B75 /* Build configuration list for PBXNativeTarget "iOS Application" */;
 			buildPhases = (
 				31E7E0B35707BE6607FE1CF1 /* [CP] Check Pods Manifest.lock */,
 				2ACC4CE91FB9D97C00401B75 /* Sources */,
@@ -590,12 +702,14 @@
 				6D81A27CD562DDE23F9CEDFE /* [CP] Copy Pods Resources */,
 				2ACC4D0F1FB9DCE500401B75 /* SwiftLint */,
 				2A66F5F81FC635D70010E371 /* Barty Crouch */,
+				2A3482A21FD970D300938167 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2A34829D1FD970D300938167 /* PBXTargetDependency */,
 			);
-			name = SmartNetworking;
+			name = "iOS Application";
 			productName = SmartNetworkung;
 			productReference = 2ACC4CED1FB9D97C00401B75 /* SmartNetworking.app */;
 			productType = "com.apple.product-type.application";
@@ -606,7 +720,7 @@
 		2ACC4CE51FB9D97C00401B75 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "David Moeller";
 				TargetAttributes = {
@@ -615,6 +729,10 @@
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2ACC4CEC1FB9D97C00401B75;
+					};
+					2A3482911FD970D200938167 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
 					};
 					2AB6E67E1FC7527A00629DBC = {
 						CreatedOnToolsVersion = 9.1;
@@ -641,7 +759,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2ACC4CEC1FB9D97C00401B75 /* SmartNetworking */,
+				2ACC4CEC1FB9D97C00401B75 /* iOS Application */,
+				2A3482911FD970D200938167 /* iOS Today Widget */,
 				2A1388D41FBBB54000B1C616 /* iOS Unit Tests */,
 				2AB6E67E1FC7527A00629DBC /* iOS Snapshot */,
 			);
@@ -653,6 +772,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A3482901FD970D200938167 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A34829A1FD970D300938167 /* MainInterface.storyboard in Resources */,
+				2A5A496D1FD9EA66002851D4 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,11 +912,26 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SmartNetworking-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-iOS Application-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3378DAA2DF1494BE76A2EBA0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS Today Widget/Pods-iOS Today Widget-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		61BF1D2E960989576059A778 /* [CP] Check Pods Manifest.lock */ = {
@@ -821,7 +964,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartNetworking/Pods-SmartNetworking-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS Application/Pods-iOS Application-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9E92C218574602A249AD46F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOS Today Widget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AE0C375882B3C9FE12958FB2 /* [CP] Copy Pods Resources */ = {
@@ -845,12 +1006,13 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SmartNetworking/Pods-SmartNetworking-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-iOS Application/Pods-iOS Application-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DefaultsKit/DefaultsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
 				"${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework",
 				"${BUILT_PRODUCTS_DIR}/Timepiece/Timepiece.framework",
 			);
@@ -861,12 +1023,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stevia.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Timepiece.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartNetworking/Pods-SmartNetworking-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS Application/Pods-iOS Application-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -877,6 +1040,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A1388E31FBBBA3800B1C616 /* AppointmentHandlerSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A34828E1FD970D200938167 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A5A496A1FD9E903002851D4 /* VisitHandler.swift in Sources */,
+				2A5A496C1FD9E997002851D4 /* Environment.swift in Sources */,
+				2A5A496E1FD9EA6E002851D4 /* Strings.swift in Sources */,
+				2A3482971FD970D300938167 /* TodayViewController.swift in Sources */,
+				2A5A49701FDAAA2B002851D4 /* Constants.swift in Sources */,
+				2A5A496B1FD9E97F002851D4 /* Visit.swift in Sources */,
+				2A5A496F1FDAAA0D002851D4 /* NoVisitsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,6 +1089,7 @@
 				2A4E95141FBE4C85002DB27D /* PermissionView.swift in Sources */,
 				2ACC4D1D1FB9E34700401B75 /* Visit.swift in Sources */,
 				2ACC4D2C1FBA17B000401B75 /* TitleSectionController.swift in Sources */,
+				2A34828D1FD96C1B00938167 /* Date.swift in Sources */,
 				2ACC4D261FBA082500401B75 /* WhiteBorderCell.swift in Sources */,
 				2A4E95101FBE20D0002DB27D /* ProgressView.swift in Sources */,
 			);
@@ -922,17 +1100,30 @@
 /* Begin PBXTargetDependency section */
 		2A1388DB1FBBB54000B1C616 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2ACC4CEC1FB9D97C00401B75 /* SmartNetworking */;
+			target = 2ACC4CEC1FB9D97C00401B75 /* iOS Application */;
 			targetProxy = 2A1388DA1FBBB54000B1C616 /* PBXContainerItemProxy */;
+		};
+		2A34829D1FD970D300938167 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A3482911FD970D200938167 /* iOS Today Widget */;
+			targetProxy = 2A34829C1FD970D300938167 /* PBXContainerItemProxy */;
 		};
 		2AB6E6851FC7527A00629DBC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2ACC4CEC1FB9D97C00401B75 /* SmartNetworking */;
+			target = 2ACC4CEC1FB9D97C00401B75 /* iOS Application */;
 			targetProxy = 2AB6E6841FC7527A00629DBC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2A3482981FD970D300938167 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A3482991FD970D300938167 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		2A66F5FE1FC639300010E371 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1006,6 +1197,46 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartNetworking.app/SmartNetworking";
+			};
+			name = Release;
+		};
+		2A3482A01FD970D300938167 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 585547FC327EA3031092E93A /* Pods-iOS Today Widget.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2T87V487YG;
+				INFOPLIST_FILE = "$(SRCROOT)/iOS/Today Extension/Assets/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = david.SmartNetworkung.todayextension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2A3482A11FD970D300938167 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ADA00A1337003DD33792E23 /* Pods-iOS Today Widget.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2T87V487YG;
+				INFOPLIST_FILE = "$(SRCROOT)/iOS/Today Extension/Assets/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = david.SmartNetworkung.todayextension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1150,19 +1381,20 @@
 		};
 		2ACC4D001FB9D97C00401B75 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4631463E9A6F5711657DF4D6 /* Pods-SmartNetworking.debug.xcconfig */;
+			baseConfigurationReference = 572A7EECF0C3EB5DC9C51227 /* Pods-iOS Application.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2T87V487YG;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Application/Assets/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = david.SmartNetworkung;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "eb62554a-e307-456d-b062-e43b8e67cf82";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore david.SmartNetworkung";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PROVISIONING_PROFILE = "33593b36-59d0-4cac-897b-3cb1606882cb";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development david.SmartNetworkung";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1170,17 +1402,18 @@
 		};
 		2ACC4D011FB9D97C00401B75 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4554AA7447E441B080631E9D /* Pods-SmartNetworking.release.xcconfig */;
+			baseConfigurationReference = 968395C828ABA6BF208CEEC0 /* Pods-iOS Application.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2T87V487YG;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Application/Assets/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = david.SmartNetworkung;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				PROVISIONING_PROFILE = "eb62554a-e307-456d-b062-e43b8e67cf82";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore david.SmartNetworkung";
 				SWIFT_VERSION = 4.0;
@@ -1196,6 +1429,15 @@
 			buildConfigurations = (
 				2A1388DC1FBBB54000B1C616 /* Debug */,
 				2A1388DD1FBBB54000B1C616 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A34829F1FD970D300938167 /* Build configuration list for PBXNativeTarget "iOS Today Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A3482A01FD970D300938167 /* Debug */,
+				2A3482A11FD970D300938167 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1218,7 +1460,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2ACC4CFF1FB9D97C00401B75 /* Build configuration list for PBXNativeTarget "SmartNetworking" */ = {
+		2ACC4CFF1FB9D97C00401B75 /* Build configuration list for PBXNativeTarget "iOS Application" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2ACC4D001FB9D97C00401B75 /* Debug */,

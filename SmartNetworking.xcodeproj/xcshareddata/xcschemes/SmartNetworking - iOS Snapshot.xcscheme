@@ -29,7 +29,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2ACC4CEC1FB9D97C00401B75"
             BuildableName = "SmartNetworking.app"
-            BlueprintName = "SmartNetworking"
+            BlueprintName = "iOS Application"
             ReferencedContainer = "container:SmartNetworking.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -53,7 +53,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2ACC4CEC1FB9D97C00401B75"
             BuildableName = "SmartNetworking.app"
-            BlueprintName = "SmartNetworking"
+            BlueprintName = "iOS Application"
             ReferencedContainer = "container:SmartNetworking.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -71,7 +71,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2ACC4CEC1FB9D97C00401B75"
             BuildableName = "SmartNetworking.app"
-            BlueprintName = "SmartNetworking"
+            BlueprintName = "iOS Application"
             ReferencedContainer = "container:SmartNetworking.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

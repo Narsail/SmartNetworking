@@ -8,6 +8,8 @@
 
 import UIKit
 import RxSwift
+import DefaultsKit
+import StoreKit
 
 class AppCoordinator: BaseCoordinator<Void> {
     
@@ -31,7 +33,29 @@ class AppCoordinator: BaseCoordinator<Void> {
     
     override func start() -> Observable<Void> {
         
+        self.checkForReview()
+        
         return coordinate(to: AppointmentListCoordinator(rootViewController: rootViewController))
+        
+    }
+    
+    func checkForReview() {
+        
+        // Check last set Date
+        let lastReviewDateKey = Key<Date>("lastReviewDate")
+        
+        if let lastReviewDate = Defaults.shared.get(for: lastReviewDateKey) {
+            
+            if Date.days(since: lastReviewDate) > 30 {
+                SKStoreReviewController.requestReview()
+            } else {
+                return
+            }
+            
+        }
+        
+        // Set new Date
+        Defaults.shared.set(Date(), for: lastReviewDateKey)
         
     }
     

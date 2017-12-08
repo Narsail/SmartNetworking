@@ -50,22 +50,21 @@ class AppointmentListViewModel: NSObject {
     }
     
     func checkStatus() {
-        let eventStatus = EKEventStore.authorizationStatus(for: EKEntityType.event)
-        let contactStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
         
-        switch (eventStatus, contactStatus) {
-        case (.notDetermined, .notDetermined):
+        let status = VisitHandler.status()
+        
+        switch status {
+        case .initial:
             requestAccessToCalendar()
             requestAccessToContacts()
-        case (.authorized, .authorized):
+        case .authorized:
             reloadData()
-        case (.restricted, _), (.denied, _):
+        case .calendarRestricted:
             needCalendarPermission()
-        case (_, .restricted), (_, .denied):
+        case .contactsRestricted:
             needContactPermission()
-        default:
-            return
         }
+        
     }
     
     func requestAccessToCalendar() {
@@ -91,47 +90,16 @@ class AppointmentListViewModel: NSObject {
             self.contentUpdated.onNext(())
         }
         
+        let eventProcessingObservable = PublishSubject<Double>()
+        let contactsProcessingObservable = PublishSubject<Double>()
+        
         firstly {
-            VisitHandler.fetchIphoneUser(in: self.contactStore)
-        }
-            
-        .then(on: .global()) { meContact -> Promise<[EKEvent]> in
-            let (_, promise) = VisitHandler.fetchEvents(in: self.eventStore, excludeLocationOf: meContact,
-                                                        from: now, to: until)
-            return promise
-        }
-        
-        .then(on: .global()) { events -> Promise<[Visit]> in
-            let (progressObservable, promise) = VisitHandler.packEventsToVisits(with: events)
-            
-            progressObservable.observeOn(MainScheduler.instance).subscribe(onNext: { progress in
-                guard let progressView = self.viewForEmptyCollectionView as? ProgressView else {
-                    return
-                }
-                progressView.title.text = StringConstants.Progress.processAppointments
-                progressView.progressView.setProgress(Float(progress), animated: true)
-            }).disposed(by: self.disposeBag)
-            
-            return promise
-        }
-        
-        .then(on: .global()) { visits -> Promise<[Visit]> in
-            let (_, promise) = VisitHandler.mergeVisits(visits)
-            return promise
-        }
-        
-        .then(on: .global()) { visits -> Promise<[Visit]> in
-            let (progressObservable, promise) = VisitHandler.assignContactsToVisits(visits, with: self.contactStore)
-            
-            progressObservable.observeOn(MainScheduler.instance).subscribe(onNext: { progress in
-                guard let progressView = self.viewForEmptyCollectionView as? ProgressView else {
-                    return
-                }
-                progressView.title.text = StringConstants.Progress.processContacts
-                progressView.progressView.setProgress(Float(progress), animated: true)
-            }).disposed(by: self.disposeBag)
-            
-            return promise
+            VisitHandler.fetchVisits(
+                from: now,
+                to: until,
+                processEventsObservable: eventProcessingObservable,
+                processContactsObservable: contactsProcessingObservable
+            )
         }
 
         .then { visits -> Void in
@@ -151,20 +119,40 @@ class AppointmentListViewModel: NSObject {
             print("Loading Appointments failed with \(error)")
         }
         
+        eventProcessingObservable.observeOn(MainScheduler.instance).subscribe(onNext: { progress in
+            guard let progressView = self.viewForEmptyCollectionView as? ProgressView else {
+                return
+            }
+            progressView.title.text = StringConstants.Progress.processAppointments
+            progressView.progressView.setProgress(Float(progress), animated: true)
+        }).disposed(by: disposeBag)
+        
+        contactsProcessingObservable.observeOn(MainScheduler.instance).subscribe(onNext: { progress in
+            guard let progressView = self.viewForEmptyCollectionView as? ProgressView else {
+                return
+            }
+            progressView.title.text = StringConstants.Progress.processContacts
+            progressView.progressView.setProgress(Float(progress), animated: true)
+        }).disposed(by: self.disposeBag)
+        
     }
     
     func needCalendarPermission() {
-        
-        self.viewForEmptyCollectionView = PermissionView(state: .calendars)
-        self.contentUpdated.onNext(())
-        
+        print("Needs Calendar Permissions.")
+        DispatchQueue.main.async {
+            self.viewForEmptyCollectionView = PermissionView(state: .calendars)
+            self.contentUpdated.onNext(())
+        }
+
     }
     
     func needContactPermission() {
-        
-        self.viewForEmptyCollectionView = PermissionView(state: .contacts)
-        self.contentUpdated.onNext(())
-        
+        print("Needs Contact Permissions.")
+        DispatchQueue.main.async {
+            self.viewForEmptyCollectionView = PermissionView(state: .contacts)
+            self.contentUpdated.onNext(())
+        }
+
     }
 }
 

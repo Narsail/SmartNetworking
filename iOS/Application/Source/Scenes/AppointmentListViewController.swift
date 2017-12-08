@@ -56,6 +56,8 @@ class AppointmentListViewController: UIViewController {
     
     override func viewDidLoad() {
         
+        print("Did Load Visit ViewController")
+        
         // Background
         self.view.backgroundColor = .white
         
@@ -71,6 +73,8 @@ class AppointmentListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        print("Did Appear Visit ViewController")
         
         if viewModel.appointments.isEmpty {
             self.viewModel.checkStatus()
@@ -105,6 +109,7 @@ class AppointmentListViewController: UIViewController {
         
         self.viewModel.contentUpdated.observeOn(MainScheduler.instance).subscribe(onNext: { _ in
             self.refreshControl.endRefreshing()
+            print("Adapter update Content.")
             self.adapter.reloadData(completion: nil)
         }).disposed(by: self.disposeBag)
         
