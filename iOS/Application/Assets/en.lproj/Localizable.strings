@@ -26,6 +26,18 @@
 /* Progress of processing the Contacts. */
 "progress.processContacts" = "";
 
+/* The Contacts. */
+"todaywidget.contacts" = "";
+
+/* The next Visit. */
+"todaywidget.nextVisit" = "";
+
+/* A Button to open the App */
+"todaywidget.openApp" = "";
+
+/* Open the App for necessary permissions. */
+"todaywidget.openAppDescription" = "";
+
 /* A Visit to a City. */
 "visits.noVisits" = "";
 

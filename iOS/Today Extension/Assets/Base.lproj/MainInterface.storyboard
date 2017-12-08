@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="iOS_Today_Widget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhY-Go-Zxv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLN-GA-6pq">
+                                <rect key="frame" x="30" y="72" width="260" height="30"/>
+                                <state key="normal" title="Open"/>
+                                <connections>
+                                    <action selector="openAppAction:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="la5-GE-3Bj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="qhY-Go-Zxv" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="1g5-CH-25U"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="qhY-Go-Zxv" secondAttribute="trailing" id="7Rw-e2-T3J"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="VLN-GA-6pq" secondAttribute="bottom" constant="8" id="9i3-yC-BOA"/>
+                            <constraint firstItem="qhY-Go-Zxv" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="XPo-oP-7e0"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="VLN-GA-6pq" secondAttribute="trailing" constant="30" id="aGA-Oo-2uB"/>
+                            <constraint firstItem="VLN-GA-6pq" firstAttribute="top" secondItem="qhY-Go-Zxv" secondAttribute="bottom" constant="8" id="uxa-hF-GLW"/>
+                            <constraint firstItem="VLN-GA-6pq" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="30" id="vTZ-y0-z37"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="110"/>
+                    <connections>
+                        <outlet property="infoView" destination="qhY-Go-Zxv" id="uLR-Dg-otb"/>
+                        <outlet property="openAppButton" destination="VLN-GA-6pq" id="Xlb-hA-V0I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

@@ -1,3 +1,8 @@
 Do you always forget to meet your friends and business partners while traveling? Smarten is an intelligent app which scans through your appointments, merges them to visits and then connects them to contacts living there. All information on one side for finding who to visit on your next trip.
 
+Top Features:
+- Your Visits in the next month will be summarized
+- It will be extended with your contacts living or working there
+- The Today Widget shows you your next Visit
+
 Note: Everything is processed on your devices and no personal data is leaving it.

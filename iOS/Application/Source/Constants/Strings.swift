@@ -10,6 +10,27 @@ import Foundation
 
 enum StringConstants {
     
+    enum TodayWidget {
+        
+        static let openApp = NSLocalizedString("todaywidget.openApp",
+           value:"Open App",
+           comment: "A Button to open the App"
+        )
+        static let openAppDescription = NSLocalizedString("todaywidget.openAppDescription",
+           value:"Please open the App to give necessary permissions.",
+           comment: "Open the App for necessary permissions."
+        )
+        static let nextVisit = NSLocalizedString("todaywidget.nextVisit",
+                                                 value:"Next Visit:",
+                                                 comment: "The next Visit."
+        )
+        static let contacts = NSLocalizedString("todaywidget.contacts",
+                                                value:"Contacts: ",
+                                                comment: "The Contacts."
+        )
+        
+    }
+    
     enum Visits {
         
         static let title = NSLocalizedString("visits.title", value:"Visits", comment: "A Visit to a City.")

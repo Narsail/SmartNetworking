@@ -26,6 +26,18 @@
 /* Progress of processing the Contacts. */
 "progress.processContacts" = "Verarbeite die Kontakte für jeden Besuch...";
 
+/* The Contacts. */
+"todaywidget.contacts" = "Kontakt(e)";
+
+/* The next Visit. */
+"todaywidget.nextVisit" = "Nächster Besuch: ";
+
+/* A Button to open the App */
+"todaywidget.openApp" = "App öffnen";
+
+/* Open the App for necessary permissions. */
+"todaywidget.openAppDescription" = "Bitte öffne die App um die notwendigen Befugnisse freizugeben.";
+
 /* A Visit to a City. */
 "visits.noVisits" = "Du hast keine Besuche in den nächsten 30 Tage geplant.";
 

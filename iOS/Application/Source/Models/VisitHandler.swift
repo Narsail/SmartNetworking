@@ -18,9 +18,71 @@ import Timepiece
 
 struct VisitHandler {
     
+    static let eventStore = EKEventStore()
+    static let contactStore = CNContactStore()
+    
+    enum VisitHandlerStatus {
+        case initial
+        case authorized
+        case calendarRestricted
+        case contactsRestricted
+    }
+    
+    /// Check the Status of the EventKit and the Contacts
+    
+    static func status() -> VisitHandlerStatus {
+        
+        let eventStatus = EKEventStore.authorizationStatus(for: EKEntityType.event)
+        let contactStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
+        
+        switch (eventStatus, contactStatus) {
+        case (.notDetermined, .notDetermined):
+            return .initial
+        case (.authorized, .authorized):
+            return .authorized
+        case (.restricted, _), (.denied, _):
+            return .calendarRestricted
+        case (_, .restricted), (_, .denied):
+            return .contactsRestricted
+        default:
+            fatalError("Reached Default Case of Status. Should not happen!.")
+        }
+    }
+    
+    /// Complete fetching Routine
+    
+    static func fetchVisits(
+        from now: Date,
+        to until: Date,
+        processEventsObservable: PublishSubject<Double>?,
+        processContactsObservable: PublishSubject<Double>?
+        ) -> Promise<[Visit]> {
+        
+        return VisitHandler.fetchIphoneUser(in: contactStore)
+            
+        .then(on: .global()) { meContact -> Promise<[EKEvent]> in
+            let (_, promise) = VisitHandler.fetchEvents(in: eventStore, excludeLocationOf: meContact,
+                                                        from: now, to: until)
+            return promise
+        }
+        
+        .then(on: .global()) { events -> Promise<[Visit]> in
+            VisitHandler.packEventsToVisits(with: events, progressSubject: processEventsObservable)
+        }
+        
+        .then(on: .global()) { visits -> Promise<[Visit]> in
+            let (_, promise) = VisitHandler.mergeVisits(visits)
+            return promise
+        }
+        
+        .then(on: .global()) { visits -> Promise<[Visit]> in
+            VisitHandler.assignContactsToVisits(visits, with: contactStore, progressSubject: processContactsObservable)
+        }
+    }
+    
     /// Get Information about the iPhone User
     
-    static func fetchIphoneUser(in store: CNContactStore) -> Promise<CNContact?> {
+    private static func fetchIphoneUser(in store: CNContactStore) -> Promise<CNContact?> {
         
         return Promise(value: nil)
         
@@ -30,7 +92,7 @@ struct VisitHandler {
     ///
     /// - important: The exclude argument is not working yet
     
-    static func fetchEvents(in store: EKEventStore,
+    private static func fetchEvents(in store: EKEventStore,
                             excludeLocationOf contact: CNContact?,
                             from startDate: Date,
                             to endDate: Date) -> (Observable<Double>, Promise<[EKEvent]>) {
@@ -99,13 +161,13 @@ struct VisitHandler {
     
     /// Pack the Events and extract visits
     
-    static func packEventsToVisits(with events: [EKEvent]) -> (Observable<Double>, Promise<[Visit]>) {
+    private static func packEventsToVisits(with events: [EKEvent],
+                                           progressSubject: PublishSubject<Double>?) -> Promise<[Visit]> {
         
-        let progressSubject = PublishSubject<Double>()
         let totalAmountOfEvents = events.count
         var eventsProcessed = 0
         
-        return (progressSubject, Promise { success, failure in
+        return Promise { success, failure in
             // Return Immediately if not events given
             if events.isEmpty { success([]); return }
             
@@ -138,7 +200,7 @@ struct VisitHandler {
                     }.then { (visits, location) in
                         // Progress
                         eventsProcessed += 1
-                        progressSubject.onNext(Double(eventsProcessed) / Double(totalAmountOfEvents))
+                        progressSubject?.onNext(Double(eventsProcessed) / Double(totalAmountOfEvents))
                         // Return
                         if let location = location {
                             return Promise(value: visits + [Visit(firstEventID: event.eventIdentifier,
@@ -165,13 +227,13 @@ struct VisitHandler {
                 failure(error)
             }
             
-        })
+        }
         
     }
     
     /// Merge Visits
     
-    static func mergeVisits(_ visits: [Visit]) -> (Observable<Double>, Promise<[Visit]>) {
+    internal static func mergeVisits(_ visits: [Visit]) -> (Observable<Double>, Promise<[Visit]>) {
         
         let progressSubject = PublishSubject<Double>()
         
@@ -187,7 +249,7 @@ struct VisitHandler {
     
     /// Merge Visits
     
-    static func mergeVisits(_ visits: [Visit], with progressSubject: PublishSubject<Double>?) -> [Visit] {
+    internal static func mergeVisits(_ visits: [Visit], with progressSubject: PublishSubject<Double>?) -> [Visit] {
         
         // Measure Progress
         let totalAmountOfVisits = visits.count
@@ -227,10 +289,11 @@ struct VisitHandler {
     
     /// Assign Contacts to the Visits
     
-    static func assignContactsToVisits(_ visits: [Visit],
-                                       with contactStore: CNContactStore) -> (Observable<Double>, Promise<[Visit]>) {
+    private static func assignContactsToVisits(
+        _ visits: [Visit],
+        with contactStore: CNContactStore,
+        progressSubject: PublishSubject<Double>?) -> Promise<[Visit]> {
         
-        let progressSubject = PublishSubject<Double>()
         let totalAmountOfVisits = visits.count
         var visitsProcessed = 0
         
@@ -285,7 +348,7 @@ struct VisitHandler {
             }
         }
         
-        return (progressSubject, Promise { success, _ in
+        return Promise { success, _ in
             
             var visitsWithContacts = [Visit]()
             
@@ -337,17 +400,17 @@ struct VisitHandler {
                 }
                 
                 visitsProcessed += 1
-                progressSubject.onNext(Double(visitsProcessed) / Double(totalAmountOfVisits))
+                progressSubject?.onNext(Double(visitsProcessed) / Double(totalAmountOfVisits))
                 
             }
             
             success(visitsWithContacts)
             
-        })
+        }
         
     }
     
-    static func fetchAllContacts(with contactStore: CNContactStore) -> [CNContact] {
+    private static func fetchAllContacts(with contactStore: CNContactStore) -> [CNContact] {
         
         let keysToFetch = [
             CNContactGivenNameKey,

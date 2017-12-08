@@ -1,1 +1,2 @@
-
+1.1.0
+- Das Today Widget wurde implementiert. Du kannst dir nun die Anzahl der Kontakte deines nächsten Besuchs anzeigen lassen.
