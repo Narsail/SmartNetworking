@@ -27,13 +27,15 @@ class VisitHandlerSpec: QuickSpec {
                 
                 let visits: [Visit] = [
                     Visit(
-                        location: Location(city: "Munich", country: "Germany"),
+                        firstEventID: "Test",
+                        location:  Location(city: "Munich", country: "Germany", isoCountryCode: "de"),
                         from: from,
                         toDate: Date().changed(hour: -22)!,
                         contacts: []
                     ),
                     Visit(
-                        location: Location(city: "Munich", country: "Germany"),
+                        firstEventID: "Test1",
+                        location: Location(city: "Munich", country: "Germany", isoCountryCode: "de"),
                         from: Date().changed(hour: -20)!,
                         toDate: to,
                         contacts: []
@@ -52,19 +54,22 @@ class VisitHandlerSpec: QuickSpec {
                 
                 let visits: [Visit] = [
                     Visit(
-                        location: Location(city: "Munich", country: "Germany"),
+                        firstEventID: "Test",
+                        location: Location(city: "Munich", country: "Germany", isoCountryCode: "de"),
                         from: from,
                         toDate: Date().changed(hour: -22)!,
                         contacts: []
                     ),
                     Visit(
-                        location: Location(city: "Munich", country: "USA"),
+                        firstEventID: "Test1",
+                        location: Location(city: "Munich", country: "USA", isoCountryCode: "us"),
                         from: Date().changed(hour: -22)!,
                         toDate: Date().changed(hour: -20)!,
                         contacts: []
                     ),
                     Visit(
-                        location: Location(city: "Munich", country: "Germany"),
+                        firstEventID: "Test2",
+                        location: Location(city: "Munich", country: "Germany", isoCountryCode: "de"),
                         from: Date().changed(hour: -20)!,
                         toDate: to,
                         contacts: []
