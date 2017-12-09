@@ -63,6 +63,8 @@ class AppointmentListViewModel: NSObject {
             needCalendarPermission()
         case .contactsRestricted:
             needContactPermission()
+        default:
+            return
         }
         
     }

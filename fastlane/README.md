@@ -29,6 +29,14 @@ xcode-select --install
 </table>
 
 # Available Actions
+### refresh_profiles
+```
+fastlane refresh_profiles
+```
+
+
+----
+
 ## iOS
 ### ios test
 ```

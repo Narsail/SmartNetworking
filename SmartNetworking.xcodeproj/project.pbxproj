@@ -96,7 +96,6 @@
 		2ACC4D2E1FBA494F00401B75 /* AppointmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4D2D1FBA494F00401B75 /* AppointmentCell.xib */; };
 		2ACC4D301FBA4FE600401B75 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4D2F1FBA4FE600401B75 /* ContactCell.xib */; };
 		2ACC4D321FBA509100401B75 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D311FBA509100401B75 /* ContactCell.swift */; };
-		498E11EB0D5E1FAFE20B1EB9 /* Pods_SmartNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968318BF54D6888262529A3C /* Pods_SmartNetworking.framework */; };
 		57F737DFA3212E31801CC541 /* Pods_iOS_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BAFFA0DD4DC52384A93E68 /* Pods_iOS_Application.framework */; };
 		D307953B6E907E54AC4FA7D5 /* Pods_iOS_Today_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671E0F937D009618EA29538D /* Pods_iOS_Today_Widget.framework */; };
 /* End PBXBuildFile section */
@@ -279,7 +278,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				498E11EB0D5E1FAFE20B1EB9 /* Pods_SmartNetworking.framework in Frameworks */,
 				57F737DFA3212E31801CC541 /* Pods_iOS_Application.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -703,6 +701,7 @@
 				2ACC4D0F1FB9DCE500401B75 /* SwiftLint */,
 				2A66F5F81FC635D70010E371 /* Barty Crouch */,
 				2A3482A21FD970D300938167 /* Embed App Extensions */,
+				2A4C82821FDC4B7100C0CFA9 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -732,7 +731,7 @@
 					};
 					2A3482911FD970D200938167 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					2AB6E67E1FC7527A00629DBC = {
 						CreatedOnToolsVersion = 9.1;
@@ -872,6 +871,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS Unit Tests/Pods-iOS Unit Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		2A4C82821FDC4B7100C0CFA9 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" e90b13e84ff233adb5a7c14c4bdf70f62b1e5baa d827c390ccb350a819d9f5d9655699201c159e669b2f93021d9b11a41a25b25a";
 		};
 		2A66F5F81FC635D70010E371 /* Barty Crouch */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1172,6 +1185,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2T87V487YG;
 				INFOPLIST_FILE = iOS/Tests/Unit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "david.iOS-Unit-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1191,6 +1205,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2T87V487YG;
 				INFOPLIST_FILE = iOS/Tests/Unit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "david.iOS-Unit-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1205,15 +1220,15 @@
 			baseConfigurationReference = 585547FC327EA3031092E93A /* Pods-iOS Today Widget.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2T87V487YG;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Today Extension/Assets/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = david.SmartNetworkung.todayextension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "5db89d2b-6bed-486e-ad08-f17a166cc2d5";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development david.SmartNetworkung.todayextension";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1224,16 +1239,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5ADA00A1337003DD33792E23 /* Pods-iOS Today Widget.release.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2T87V487YG;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Today Extension/Assets/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = david.SmartNetworkung.todayextension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "3634bd66-2ce1-4f52-aee8-ec542ece3e39";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore david.SmartNetworkung.todayextension";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1246,12 +1261,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2T87V487YG;
 				INFOPLIST_FILE = "iOS/Tests/UI Snapshot/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "david.iOS-Snapshot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SmartNetworking;
+				TEST_TARGET_NAME = "iOS Application";
 			};
 			name = Debug;
 		};
@@ -1261,12 +1278,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2T87V487YG;
 				INFOPLIST_FILE = "iOS/Tests/UI Snapshot/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "david.iOS-Snapshot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SmartNetworking;
+				TEST_TARGET_NAME = "iOS Application";
 			};
 			name = Release;
 		};
@@ -1319,7 +1338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1371,7 +1390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

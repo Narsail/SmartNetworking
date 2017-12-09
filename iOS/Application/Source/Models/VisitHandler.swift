@@ -26,6 +26,7 @@ struct VisitHandler {
         case authorized
         case calendarRestricted
         case contactsRestricted
+        case doNothing
     }
     
     /// Check the Status of the EventKit and the Contacts
@@ -45,7 +46,7 @@ struct VisitHandler {
         case (_, .restricted), (_, .denied):
             return .contactsRestricted
         default:
-            fatalError("Reached Default Case of Status. Should not happen!.")
+            return .doNothing
         }
     }
     
