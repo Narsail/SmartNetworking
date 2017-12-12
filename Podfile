@@ -13,7 +13,6 @@ def shared
     pod 'BartyCrouch'
     pod 'Fabric'
     pod 'Crashlytics'
-    
 end
 
 target 'iOS Application' do
