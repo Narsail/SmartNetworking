@@ -39,6 +39,23 @@ DEPENDENCIES:
   - SwiftLint
   - Timepiece
 
+SPEC REPOS:
+  trunk:
+    - BartyCrouch
+    - Crashlytics
+    - DefaultsKit
+    - Fabric
+    - IGListKit
+    - Nimble
+    - PromiseKit
+    - Quick
+    - RxCocoa
+    - RxSwift
+    - Siren
+    - SteviaLayout
+    - SwiftLint
+    - Timepiece
+
 SPEC CHECKSUMS:
   BartyCrouch: 7a57b80f80c94deb1db99942eebf14f9fad927fe
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
@@ -57,4 +74,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 2cd02fb5c841b188fba0ef1f99bdf29286947c20
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.8.4

@@ -7,17 +7,14 @@
 //
 
 import UIKit
-import RxSwift
 import Fabric
 import Crashlytics
-import Siren
+import SwiftUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private var appCoordinator: AppCoordinator?
-    private let disposeBag = DisposeBag()
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -31,28 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Fabric.with([Crashlytics.self, Answers.self])
         }
         
-        // Start the AppCoordinator
-        appCoordinator = AppCoordinator(window: window)
-        appCoordinator?.start().subscribe().disposed(by: disposeBag)
-        // Check for new Version
-        Siren.shared.forceLanguageLocalization = .english
-        Siren.shared.checkVersion(checkType: .immediately)
+        let rootViewController = UIHostingController(rootView: DisplayContactsView())
+        window.rootViewController = rootViewController
         
         return true
     }
     
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        Siren.shared.checkVersion(checkType: .daily)
-    }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        /*
-         Useful if user returns to your app from the background after being sent to the
-         App Store, but doesn't update their app before coming back to your app.
-         
-         ONLY USE WITH Siren.AlertType.immediately
-         */
-        
-        Siren.shared.checkVersion(checkType: .immediately)
-    }
 }

@@ -52,6 +52,7 @@
 		2ACC4D301FBA4FE600401B75 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ACC4D2F1FBA4FE600401B75 /* ContactCell.xib */; };
 		2ACC4D321FBA509100401B75 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC4D311FBA509100401B75 /* ContactCell.swift */; };
 		57F737DFA3212E31801CC541 /* Pods_iOS_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BAFFA0DD4DC52384A93E68 /* Pods_iOS_Application.framework */; };
+		BFB20E46236EC71900D9112D /* DisplayContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB20E45236EC71900D9112D /* DisplayContactsView.swift */; };
 		D307953B6E907E54AC4FA7D5 /* Pods_iOS_Today_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671E0F937D009618EA29538D /* Pods_iOS_Today_Widget.framework */; };
 /* End PBXBuildFile section */
 
@@ -199,6 +200,7 @@
 		968395C828ABA6BF208CEEC0 /* Pods-iOS Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Application.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Application/Pods-iOS Application.release.xcconfig"; sourceTree = "<group>"; };
 		9DE1AABC93EE7CE312F52863 /* Pods-SmartNetworkung.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartNetworkung.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartNetworkung/Pods-SmartNetworkung.release.xcconfig"; sourceTree = "<group>"; };
 		A593B79A4803E7C9B7DF5E6B /* Pods-iOS Unit Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Unit Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Unit Tests/Pods-iOS Unit Tests.release.xcconfig"; sourceTree = "<group>"; };
+		BFB20E45236EC71900D9112D /* DisplayContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayContactsView.swift; sourceTree = "<group>"; };
 		E8294C1C8C720E815A999F28 /* Pods-iOS Unit Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Unit Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Unit Tests/Pods-iOS Unit Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EE9195FC81516BC7D6D7FAFA /* Pods_iOS_Unit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Unit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23D361C116A39C0118690F8 /* Pods-SmartNetworkung.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartNetworkung.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartNetworkung/Pods-SmartNetworkung.debug.xcconfig"; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 		2ACC4D051FB9DACD00401B75 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				BFB20E44236EC68200D9112D /* DisplayContacts */,
 				2ACC4D241FBA081C00401B75 /* Views */,
 				2ACC4D211FBA07C500401B75 /* Sections */,
 				2ACC4D1B1FB9E33800401B75 /* Models */,
@@ -582,6 +585,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BFB20E44236EC68200D9112D /* DisplayContacts */ = {
+			isa = PBXGroup;
+			children = (
+				BFB20E45236EC71900D9112D /* DisplayContactsView.swift */,
+			);
+			path = DisplayContacts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -594,7 +605,6 @@
 				2A1388D21FBBB54000B1C616 /* Frameworks */,
 				2A1388D31FBBB54000B1C616 /* Resources */,
 				1219EA60B0729A9F4C1D826F /* [CP] Embed Pods Frameworks */,
-				AE0C375882B3C9FE12958FB2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -614,7 +624,6 @@
 				2A34828E1FD970D200938167 /* Sources */,
 				2A34828F1FD970D200938167 /* Frameworks */,
 				2A3482901FD970D200938167 /* Resources */,
-				3378DAA2DF1494BE76A2EBA0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -652,7 +661,6 @@
 				2ACC4CEA1FB9D97C00401B75 /* Frameworks */,
 				2ACC4CEB1FB9D97C00401B75 /* Resources */,
 				F916E4FC46883F9FFFBE0BB7 /* [CP] Embed Pods Frameworks */,
-				6D81A27CD562DDE23F9CEDFE /* [CP] Copy Pods Resources */,
 				2ACC4D0F1FB9DCE500401B75 /* SwiftLint */,
 				2A66F5F81FC635D70010E371 /* Barty Crouch */,
 				2A3482A21FD970D300938167 /* Embed App Extensions */,
@@ -768,7 +776,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-iOS Unit Tests/Pods-iOS Unit Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-iOS Unit Tests/Pods-iOS Unit Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
@@ -779,7 +787,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS Unit Tests/Pods-iOS Unit Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS Unit Tests/Pods-iOS Unit Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2A4C82821FDC4B7100C0CFA9 /* Fabric */ = {
@@ -842,21 +850,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3378DAA2DF1494BE76A2EBA0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS Today Widget/Pods-iOS Today Widget-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		61BF1D2E960989576059A778 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -873,21 +866,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6D81A27CD562DDE23F9CEDFE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS Application/Pods-iOS Application-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A9E92C218574602A249AD46F /* [CP] Check Pods Manifest.lock */ = {
@@ -908,28 +886,13 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AE0C375882B3C9FE12958FB2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS Unit Tests/Pods-iOS Unit Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F916E4FC46883F9FFFBE0BB7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-iOS Application/Pods-iOS Application-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-iOS Application/Pods-iOS Application-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DefaultsKit/DefaultsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
@@ -952,7 +915,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS Application/Pods-iOS Application-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS Application/Pods-iOS Application-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1009,6 +972,7 @@
 				2A4E95121FBE394C002DB27D /* NoVisitsView.swift in Sources */,
 				2ACC4D201FB9F39400401B75 /* String+Contains.swift in Sources */,
 				2ACC4D1A1FB9E27300401B75 /* Constants.swift in Sources */,
+				BFB20E46236EC71900D9112D /* DisplayContactsView.swift in Sources */,
 				2A4E95141FBE4C85002DB27D /* PermissionView.swift in Sources */,
 				2ACC4D1D1FB9E34700401B75 /* Visit.swift in Sources */,
 				2ACC4D2C1FBA17B000401B75 /* TitleSectionController.swift in Sources */,
@@ -1133,7 +1097,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2T87V487YG;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Today Extension/Assets/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = david.SmartNetworkung.todayextension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1153,7 +1117,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2T87V487YG;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Today Extension/Assets/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = david.SmartNetworkung.todayextension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1248,7 +1212,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1300,7 +1264,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1318,7 +1282,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2T87V487YG;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Application/Assets/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = david.SmartNetworkung;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
@@ -1339,7 +1303,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2T87V487YG;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Application/Assets/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = david.SmartNetworkung;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
